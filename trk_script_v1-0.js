@@ -9,11 +9,11 @@ var trk_referer = document.referrer;
   
 var url = new URL(trk_url);
 var search_params = url.searchParams;
-// add "topic" parameter
 search_params.set('trk_param', search_params);
-//search_params.set('trk_url', trk_url);
-search_params.set('trk_referer', trk_referer);
 search_params.set('trk_path', trk_path);
+//search_params.set('trk_url', trk_url);
+//search_params.set('trk_referer', trk_referer);
+
 url.search = search_params.toString();
 var new_url = url.toString();
 console.log(new_url);
