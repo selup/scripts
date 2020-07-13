@@ -1,3 +1,10 @@
+
+// read cookie
+var x = document.cookie;
+console.log(x);
+
+
+
 var trk_referer = document.referrer;
   console.log("the referer is:", trk_referer);
   
