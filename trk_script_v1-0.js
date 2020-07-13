@@ -3,6 +3,9 @@
 var x = document.cookie;
 console.log(x);
 
+// write cookie
+document.cookie = "cookiname=woo";
+
 
 
 var trk_referer = document.referrer;
