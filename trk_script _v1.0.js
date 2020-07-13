@@ -1,3 +1,7 @@
+
+var tmp = document.cookie;
+console.log(tmp);
+
 var trk_referer = document.referrer;
   console.log("the referer is:", trk_referer);
   
