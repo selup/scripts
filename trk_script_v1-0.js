@@ -14,9 +14,14 @@ if (conf_pagetype == "submit")
 }
 else if(conf_pagetype == "landing")
 {
+	// set url param
 	var trk_landing = window.location.pathname;
 	search_params.set('trk_landing', trk_landing);
-	$('[data-custom-type="trk_landing"]').value = trk_landing;
+	
+	// set input value
+	var elt_input = $('[data-custom-type="trk_landing"]');
+	elt_input.attr('value',trk_landing);
+
 }
 
 url.search = search_params.toString();
