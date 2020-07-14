@@ -16,7 +16,7 @@ var search_params = url.searchParams;
 
 // get input value
 var elt_input = $('[data-custom-type="conf_pagetype"]');
-console.log("get dynamique is:",elt_input.attr('value',var_submit));
+console.log("get dynamique is:",elt_input.attr('value'));
 
 
 
