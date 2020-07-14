@@ -13,11 +13,55 @@ var initial_url = window.location.href;
 var url = new URL(initial_url);
 var search_params = url.searchParams;
 
+
+/*****************/
+/**   SUBMIT   **/
+/*****************/
+
 if (conf_pagetype == "submit")
 {
+	//var var_submit = window.location.pathname;
+	//search_params.set('trk_subm', var_submit);
+	
+	//////////
+	// path //
+	//////////
+	// set url param
 	var var_submit = window.location.pathname;
-	search_params.set('trk_subm', var_submit);
+	search_params.set('trk_subm_path', var_submit);
+	// set input value
+	var elt_input = $('[data-custom-type="trk_subm_path"]');
+	elt_input.attr('value',var_submit);
+	// set cookie
+	document.cookie = 'trk_subm_path='+var_submit;
+	
+	///////////
+	//  Name //
+	///////////
+	// set url param
+	search_params.set('trk_subm_name', conf_name);
+	// set input value
+	var elt_input = $('[data-custom-type="trk_subm_name"]');
+	elt_input.attr('value',conf_name);
+	// set cookie
+	document.cookie = 'trk_subm_name='+conf_name;
+	
+	
+	////////////
+	// Option //
+	////////////
+	// set url param
+	search_params.set('trk_subm_opt', conf_option);
+	// set input value
+	var elt_input = $('[data-custom-type="trk_subm_opt"]');
+	elt_input.attr('value',conf_option);
+	// set cookie
+	document.cookie = 'trk_subm_opt='+conf_option;
 }
+
+/*****************/
+/**   LANDING   **/
+/*****************/
 else if(conf_pagetype == "landing")
 {
 	//////////
