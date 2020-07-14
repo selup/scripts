@@ -144,6 +144,37 @@ console.log(new_url);
 window.history.replaceState({},{},new_url);
 
 
+/** Workarround **/
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+// Subm path
+var_var_submit=getCookie("trk_subm_path");
+var elt_input = $('[data-custom-type="trk_subm_path"]');
+elt_input.attr('value',var_submit);
+
+
+// LP path
+var var_lp=getCookie("trk_lp_path");
+var elt_input = $('[data-custom-type="trk_lp_path"]');
+elt_input.attr('value',var_lp);
+
+
+
+
 /***************************************/
 /** Replace href link in all document **/
 /***************************************/
