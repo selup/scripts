@@ -15,14 +15,17 @@ console.log("conf_option is:",conf_option);
 // PageType
 var elt_input = $('[data-custom-type="conf_pagetype"]');
 conf_pagetype = elt_input.attr('value'));
+console.log("conf_pagetype is",conf_pagetype);
 
 // Name
 var elt_input = $('[data-custom-type="conf_name"]');
 conf_name = elt_input.attr('value'));
+console.log("conf_name is",conf_name);
 
 // Option
 var elt_input = $('[data-custom-type="conf_option"]');
 conf_option = elt_input.attr('value'));
+console.log("conf_option is",conf_option);
 
 
 
