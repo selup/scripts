@@ -1,10 +1,10 @@
 
 // read cookie
-var x = document.cookie;
-console.log(x);
+//var x = document.cookie;
+//console.log(x);
 
 // write cookie
-document.cookie = "cookiname=woo";
+//document.cookie = "cookiname=woo";
 
 
 
