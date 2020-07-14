@@ -2,7 +2,10 @@
 var conf_pagetype = document.getElementById('conf_pagetype').textContent;
 console.log("conf_pagetype is:",conf_pagetype);
 
-var conf_option = conf_pagetype+'-'+document.getElementById('conf_option').textContent;
+var conf_name = document.getElementById('conf_name').textContent;
+console.log("conf_name is:",conf_name);
+
+var conf_option = document.getElementById('conf_option').textContent;
 console.log("conf_option is:",conf_option);
 
 
@@ -17,17 +20,29 @@ if (conf_pagetype == "submit")
 }
 else if(conf_pagetype == "landing")
 {
-	//////////////
-	// Pagetype //
-	//////////////
+	//////////
+	// path //
+	//////////
 	// set url param
 	var var_landing = window.location.pathname;
-	search_params.set('trk_lp', var_landing);
+	search_params.set('trk_lp_path', var_landing);
 	// set input value
-	var elt_input = $('[data-custom-type="trk_lp"]');
+	var elt_input = $('[data-custom-type="trk_lp_path"]');
 	elt_input.attr('value',var_landing);
 	// set cookie
-	document.cookie = 'trk_lp='+var_landing;
+	document.cookie = 'trk_lp_path='+var_landing;
+	
+	///////////
+	//  Name //
+	///////////
+	// set url param
+	search_params.set('trk_lp_name', conf_name);
+	// set input value
+	var elt_input = $('[data-custom-type="trk_lp_name"]');
+	elt_input.attr('value',conf_name);
+	// set cookie
+	document.cookie = 'trk_lp_name='+conf_name;
+	
 	
 	////////////
 	// Option //
