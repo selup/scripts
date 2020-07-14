@@ -131,20 +131,20 @@ window.history.replaceState({},{},new_url);
 /***************************************/
 // filter utm_expid
 var utm_to_filter = new URL(new_url);
-var params_to_filter = new URLSearchParams(utm_to_filter.search.slice(1));
-var params_filtered = params_to_filter;
-params_filtered.delete("utm_expid");
-console.log("params_to_filter is",params_to_filter.toString());
-console.log("params_filtered is",params_filtered.toString());
+var params_filter = new URLSearchParams(utm_to_filter.search.slice(1));
+params_filter.delete("utm_expid");
+console.log("params_filter is",params_filter.toString());
+
+var url_string = utm_to_filter.toString();
+
+var queryString = new URL(url_string).search;
+console.log("queryString is",queryString);
 
 /*
-new URL(new_url)
-
 var queryString = new URL(new_url).search;
 console.log("queryString is",queryString);
 */
-var queryString = params_filtered.toString();
-console.log("queryString is",queryString);
+
 document.querySelectorAll("[href]").forEach(link => {
     var current = link.href;
     link.href = current + queryString;
