@@ -16,6 +16,7 @@ else if(conf_pagetype == "landing")
 {
 	var trk_landing = window.location.pathname;
 	search_params.set('trk_landing', trk_landing);
+	$('[data-custom-type="trk_landing"]').value = trk_landing;
 }
 
 url.search = search_params.toString();
