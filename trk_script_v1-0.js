@@ -2,6 +2,9 @@
 var conf_pagetype = document.getElementById('conf_pagetype').textContent;
 console.log("conf_pagetype is:",conf_pagetype);
 
+var conf_option = conf_pagetype+'-'+document.getElementById('conf_option').textContent;
+console.log("conf_option is:",conf_option);
+
 
 var initial_url = window.location.href;
 var url = new URL(initial_url);
@@ -9,23 +12,33 @@ var search_params = url.searchParams;
 
 if (conf_pagetype == "submit")
 {
-	var trk_submit = window.location.pathname;
-	search_params.set('trk_submit', trk_submit);
+	var var_submit = window.location.pathname;
+	search_params.set('trk_subm', var_submit);
 }
 else if(conf_pagetype == "landing")
 {
+	//////////////
+	// Pagetype //
+	//////////////
 	// set url param
-	var trk_landing = window.location.pathname;
-	search_params.set('trk_landing', trk_landing);
-	
+	var var_landing = window.location.pathname;
+	search_params.set('trk_lp', var_landing);
 	// set input value
-	/*
-	var elt_input = $('[data-custom-type="trk_landing"]');
-	elt_input.attr('value',trk_landing);
-	*/
-	
+	var elt_input = $('[data-custom-type="trk_lp"]');
+	elt_input.attr('value',var_landing);
 	// set cookie
-	document.cookie = 'trk_landing='+trk_landing;
+	document.cookie = 'trk_lp='+var_landing;
+	
+	////////////
+	// Option //
+	////////////
+	// set url param
+	search_params.set('trk_lp_opt', conf_option);
+	// set input value
+	var elt_input = $('[data-custom-type="trk_lp_opt"]');
+	elt_input.attr('value',conf_option);
+	// set cookie
+	document.cookie = 'trk_lp_opt='+conf_option;
 
 }
 
