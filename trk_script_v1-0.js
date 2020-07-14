@@ -151,7 +151,7 @@ document.querySelectorAll("[href]").forEach(link => {
     var current = link.href;
 	console.log("link",current);
 	// filter only webinaire.org to higher speed (low flikr)
-	if(current.includes("webinaire.org") == true)
+	if( (current.includes("webinaire.org") == true) && (current.includes(".css") == false) )
 	{
 		link.href = current + queryString;
 		console.log("link replace",link.href);
