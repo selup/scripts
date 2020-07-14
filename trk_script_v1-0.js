@@ -3,7 +3,7 @@ var conf_pagetype = document.getElementById('conf_pagetype').textContent;
 console.log("conf_pagetype is:",conf_pagetype);
 
 
-if conf_pagetype == "landing")
+if (conf_pagetype == "landing")
 {
 	var trk_lp = window.location.pathname;
 }
