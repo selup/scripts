@@ -129,11 +129,13 @@ window.history.replaceState({},{},new_url);
 /***************************************/
 /** Replace href link in all document **/
 /***************************************/
-/*
+
 var queryString = new URL(new_url).search;
+queryString.delete(utm_expid);
 console.log("queryString is",queryString);
+
 document.querySelectorAll("[href]").forEach(link => {
     var current = link.href;
     link.href = current + queryString;
 });
-*/
+
