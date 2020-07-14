@@ -1,3 +1,6 @@
+// mask row trk
+element.insertAdjacentHTML(beforebegin, "text");
+
 /********************/
 /**   GET CONFIG   **/
 /********************/
