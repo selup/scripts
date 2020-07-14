@@ -143,7 +143,7 @@ new URL(new_url)
 var queryString = new URL(new_url).search;
 console.log("queryString is",queryString);
 */
-var queryString = params_filtered;
+var queryString = params_filtered.toString();
 console.log("queryString is",queryString);
 document.querySelectorAll("[href]").forEach(link => {
     var current = link.href;
