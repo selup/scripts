@@ -150,6 +150,6 @@ console.log("queryString is",queryString);
 document.querySelectorAll("[href]").forEach(link => {
     var current = link.href;
 	console.log("link",current);
-    //link.href = current + queryString;
+    link.href = current + queryString;
 });
 
