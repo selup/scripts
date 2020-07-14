@@ -3,30 +3,27 @@ var conf_pagetype = document.getElementById('conf_pagetype').textContent;
 console.log("conf_pagetype is:",conf_pagetype);
 
 
+var initial_url = window.location.href;
+var url = new URL(initial_url);
+var search_params = url.searchParams;
+
 if (conf_pagetype == "submit")
 {
 	var trk_submit = window.location.pathname;
-	
-	var url = new URL(trk_url);
-	var search_params = url.searchParams;
 	search_params.set('trk_submit', trk_submit);
-	url.search = search_params.toString();
-	var new_url = url.toString();
-	console.log(new_url);
-	window.history.pushState({},{},new_url);	
 }
 else if(conf_pagetype == "landing")
 {
 	var trk_landing = window.location.pathname;
-	
-	var url = new URL(trk_url);
-	var search_params = url.searchParams;
 	search_params.set('trk_landing', trk_landing);
-	url.search = search_params.toString();
-	var new_url = url.toString();
-	console.log(new_url);
-	window.history.pushState({},{},new_url);
 }
+
+url.search = search_params.toString();
+var new_url = url.toString();
+console.log(new_url);
+window.history.pushState({},{},new_url);	
+
+
 
 
 // read cookie
