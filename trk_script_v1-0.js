@@ -1,6 +1,3 @@
-// mask row trk
-element.insertAdjacentHTML(beforebegin, "text");
-
 /********************/
 /**   GET CONFIG   **/
 /********************/
@@ -100,13 +97,17 @@ else if(conf_pagetype == "landing")
 	///////////
 	//  Name //
 	///////////
-	// set url param
-	search_params.set('trk_lp_name', conf_name);
-	// set input value
-	var elt_input = $('[data-custom-type="trk_lp_name"]');
-	elt_input.attr('value',conf_name);
-	// set cookie
-	document.cookie = 'trk_lp_name='+conf_name;
+	if( conf_name ! null)
+	{
+		console.log("not null");
+		// set url param
+		search_params.set('trk_lp_name', conf_name);
+		// set input value
+		var elt_input = $('[data-custom-type="trk_lp_name"]');
+		elt_input.attr('value',conf_name);
+		// set cookie
+		document.cookie = 'trk_lp_name='+conf_name;
+	}
 	
 	
 	////////////
