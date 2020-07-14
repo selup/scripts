@@ -31,5 +31,5 @@ window.history.pushState({},{},new_url);
 
 
 // Get element 
-var var_name = document.getElementById("conf-lp");
-console.log(var_name);
+var var_name = document.getElementById('conf-lp');
+console.log("the conf is:",var_name);
