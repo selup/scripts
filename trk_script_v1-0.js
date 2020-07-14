@@ -19,8 +19,13 @@ else if(conf_pagetype == "landing")
 	search_params.set('trk_landing', trk_landing);
 	
 	// set input value
+	/*
 	var elt_input = $('[data-custom-type="trk_landing"]');
 	elt_input.attr('value',trk_landing);
+	*/
+	
+	// set cookie
+	document.cookie = 'trk_landing='+trk_landing;
 
 }
 
