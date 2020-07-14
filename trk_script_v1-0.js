@@ -137,11 +137,13 @@ params_filtered.delete("utm_expid");
 console.log("params_to_filter is",params_to_filter.toString());
 console.log("params_filtered is",params_filtered.toString());
 
-
-
+/*
+new URL(new_url)
 
 var queryString = new URL(new_url).search;
 console.log("queryString is",queryString);
+*/
+var queryString = params_filtered;
 
 document.querySelectorAll("[href]").forEach(link => {
     var current = link.href;
