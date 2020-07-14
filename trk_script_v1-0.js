@@ -28,11 +28,6 @@ conf_option = elt_input.attr('value');
 console.log("conf_option is",conf_option);
 
 
-
-
-
-
-
 var initial_url = window.location.href;
 var url = new URL(initial_url);
 var search_params = url.searchParams;
@@ -134,10 +129,11 @@ window.history.replaceState({},{},new_url);
 /***************************************/
 /** Replace href link in all document **/
 /***************************************/
+/*
 var queryString = new URL(new_url).search;
 console.log("queryString is",queryString);
 document.querySelectorAll("[href]").forEach(link => {
     var current = link.href;
     link.href = current + queryString;
 });
-
+*/
