@@ -144,11 +144,11 @@ console.log("url filtered is",url_filtered);
 var queryString = new URL(url_filtered).search;
 console.log("queryString is",queryString);
 
-/*
+
 //var queryString = new URL(new_url).search;
 //console.log("queryString is",queryString);
 document.querySelectorAll("[href]").forEach(link => {
     var current = link.href;
-    link.href = current + queryString;
+    //link.href = current + queryString;
 });
-*/
+
