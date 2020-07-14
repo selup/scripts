@@ -1,4 +1,7 @@
-// Get config
+/********************/
+/**   GET CONFIG   **/
+/********************/
+/*
 var conf_pagetype = document.getElementById('conf_pagetype').textContent;
 console.log("conf_pagetype is:",conf_pagetype);
 
@@ -7,21 +10,29 @@ console.log("conf_name is:",conf_name);
 
 var conf_option = document.getElementById('conf_option').textContent;
 console.log("conf_option is:",conf_option);
+*/
+
+// PageType
+var elt_input = $('[data-custom-type="conf_pagetype"]');
+conf_pagetype = elt_input.attr('value'));
+
+// Name
+var elt_input = $('[data-custom-type="conf_name"]');
+conf_name = elt_input.attr('value'));
+
+// Option
+var elt_input = $('[data-custom-type="conf_option"]');
+conf_option = elt_input.attr('value'));
+
+
+
+
+
 
 
 var initial_url = window.location.href;
 var url = new URL(initial_url);
 var search_params = url.searchParams;
-
-
-// get input value
-var elt_input = $('[data-custom-type="conf_pagetype"]');
-console.log("get dynamique is:",elt_input.attr('value'));
-
-
-
-
-
 
 /*****************/
 /**   SUBMIT   **/
@@ -114,41 +125,5 @@ url.search = search_params.toString();
 var new_url = url.toString();
 console.log(new_url);
 window.history.pushState({},{},new_url);	
-
-
-
-
-// read cookie
-//var x = document.cookie;
-//console.log(x);
-
-// write cookie
-//document.cookie = "cookiname=woo";
-
-
-/*
-var trk_referer = document.referrer;
-  console.log("the referer is:", trk_referer);
-  
-  var trk_url = window.location.href;
-  console.log("the url is:", trk_url); 
-  
-  var trk_path = window.location.pathname;
-*/
-/*
-	var url = new URL(trk_url);
-	var search_params = url.searchParams;
-	//search_params.set('trk_param', search_params);
-	search_params.set('trk_path', trk_path);
-	search_params.set('trk_lp', trk_lp);
-	//search_params.set('trk_url', trk_url);
-	//search_params.set('trk_referer', trk_referer);
-
-	url.search = search_params.toString();
-	var new_url = url.toString();
-	console.log(new_url);
-	window.history.pushState({},{},new_url); 
-*/ 
-
 
 
