@@ -29,4 +29,7 @@ var new_url = url.toString();
 console.log(new_url);
 window.history.pushState({},{},new_url); 
 
-toto;
+
+// Get element 
+var var_name = document.getElementById("conf-lp");
+console.log(var_name);
