@@ -149,16 +149,13 @@ console.log("queryString is",queryString);
 //console.log("queryString is",queryString);
 document.querySelectorAll("[href]").forEach(link => {
     var current = link.href;
-	console.log("link",current);
-	// filter only webinaire.org to higher speed (low flikr)
+	//console.log("link",current);
+	// filter to higher speed (low flikr)
 	if( (current.includes("webinaire.org") == true) && (current.includes(".css") == false) )
 	{
 		link.href = current + queryString;
-		console.log("link replace",link.href);
+		//console.log("link replace",link.href);
 	}
-	else
-	{
-		console.log("link not replace",link.href);
-	}
+
 });
 
