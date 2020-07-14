@@ -135,7 +135,7 @@ var params_to_filter = new URLSearchParams(utm_to_filter.search.slice(1));
 var params_filtered = params_to_filter;
 params_filtered.delete("utm_expid");
 console.log("params_to_filter is",params_to_filter.toString());
-console.log("params_filtered is",params_filtered);
+console.log("params_filtered is",params_filtered.toString());
 
 
 
