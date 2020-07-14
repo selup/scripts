@@ -97,7 +97,7 @@ else if(conf_pagetype == "landing")
 	///////////
 	//  Name //
 	///////////
-	if( conf_name ! null)
+	if( conf_name != null)
 	{
 		console.log("not null");
 		// set url param
