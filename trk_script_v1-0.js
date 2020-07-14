@@ -1,6 +1,12 @@
 // Get config
-var conf_lp = document.getElementById('conf_lp').textContent;
-console.log("conf_lp is:",conf_lp);
+var conf_pagetype = document.getElementById('conf_pagetype').textContent;
+console.log("conf_pagetype is:",conf_pagetype);
+
+
+if conf_pagetype == "landing")
+{
+	var trk_lp = window.location.pathname;
+}
 
 
 // read cookie
@@ -20,11 +26,13 @@ var trk_referer = document.referrer;
   
   var trk_path = window.location.pathname;
 
-  
+
+ 
 var url = new URL(trk_url);
 var search_params = url.searchParams;
 //search_params.set('trk_param', search_params);
 search_params.set('trk_path', trk_path);
+search_params.set('trk_lp', trk_lp);
 //search_params.set('trk_url', trk_url);
 //search_params.set('trk_referer', trk_referer);
 
