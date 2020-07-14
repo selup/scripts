@@ -28,3 +28,5 @@ url.search = search_params.toString();
 var new_url = url.toString();
 console.log(new_url);
 window.history.pushState({},{},new_url); 
+
+toto;
