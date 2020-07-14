@@ -129,9 +129,15 @@ window.history.replaceState({},{},new_url);
 /***************************************/
 /** Replace href link in all document **/
 /***************************************/
+// filter utm_expid
+var utm_to_filter = new URL(new_url);
+var params_to_filter = new URLSearchParams(utm_to_filter.search.slice(1));
+var params_filtered = params_to_filter;
+params_filtered.delete("utm_expid");
+console.log("params_to_filter is",params_to_filter);
+console.log("params_filtered is",params_filtered);
 
 var queryString = new URL(new_url).search;
-queryString.delete("utm_expid");
 console.log("queryString is",queryString);
 
 document.querySelectorAll("[href]").forEach(link => {
