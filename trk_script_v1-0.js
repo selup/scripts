@@ -139,7 +139,7 @@ console.log("params_filter is",params_filter.toString());
 var url_tmp = new URL(new_url);
 url_tmp.search = params_filter.toString();
 var url_filtered = url_tmp.toString();
-console.log(url_filtered);
+console.log("url filtered is",url_filtered);
 
 var queryString = new URL(url_filtered).search;
 console.log("queryString is",queryString);
