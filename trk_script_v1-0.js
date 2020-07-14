@@ -1,3 +1,7 @@
+// Get config
+var conf_lp = document.getElementById('conf_lp').textContent;
+console.log("conf_lp is:",conf_lp);
+
 
 // read cookie
 //var x = document.cookie;
@@ -30,6 +34,3 @@ console.log(new_url);
 window.history.pushState({},{},new_url); 
 
 
-// Get element 
-var var_name = document.getElementById('conf-lp');
-console.log("the conf is:",var_name);
