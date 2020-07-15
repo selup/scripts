@@ -140,8 +140,8 @@ else if(conf_pagetype == "landing")
 url.search = search_params.toString();
 var new_url = url.toString();
 console.log(new_url);
-//window.history.pushState({},{},new_url);	
-window.history.replaceState({},{},new_url);
+window.history.pushState({},{},new_url);	
+//window.history.replaceState({},{},new_url);
 
 
 /** Workarround **/
