@@ -52,13 +52,13 @@ current_path = current_path.substr(1);
 
 	
 /** LANDING **/
-if(conf_pagetype = "landing")
+if(conf_pagetype == "landing")
 {
 	document.cookie = 'trk_lp_path='+current_path;
 	document.cookie = 'trk_lp_name='+conf_name;
 	document.cookie = 'trk_lp_opt='+conf_option;
 }
-else if(conf_pagetype = "submit")
+else if(conf_pagetype == "submit")
 {
 	document.cookie = 'trk_subm_path='+current_path;
 	document.cookie = 'trk_subm_name='+conf_name;
