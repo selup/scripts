@@ -1,7 +1,9 @@
-var elt_input = $('[data-title="row-trk"]');
-//elt_input.style.display = "none";
-elt_input.attr('style','display:""');
 
+// Print forms (for debug only) - caution, all page with this form will be show
+/*
+var elt_input = $('[data-title="row-trk"]');
+elt_input.attr('style','display:""');
+*/
 
 function getCookie(cname) {
   var name = cname + "=";
