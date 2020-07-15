@@ -1,4 +1,11 @@
-element.insertAdjacentHTML('afterbegin', "toto");
+var elt_input = $('[data-title="row-trk"]');
+elt_input.display = none;
+
+
+
+
+var div = document.getElementById("div1");
+div.style.marginTop = ".25cm";
 
 
 function getCookie(cname) {
