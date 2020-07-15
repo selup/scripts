@@ -1,150 +1,3 @@
-/********************/
-/**   GET CONFIG   **/
-/********************/
-/*
-var conf_pagetype = document.getElementById('conf_pagetype').textContent;
-console.log("conf_pagetype is:",conf_pagetype);
-
-var conf_name = document.getElementById('conf_name').textContent;
-console.log("conf_name is:",conf_name);
-
-var conf_option = document.getElementById('conf_option').textContent;
-console.log("conf_option is:",conf_option);
-*/
-
-// PageType
-var elt_input = $('[data-custom-type="conf_pagetype"]');
-conf_pagetype = elt_input.attr('value');
-console.log("conf_pagetype is",conf_pagetype);
-
-// Name
-var elt_input = $('[data-custom-type="conf_name"]');
-conf_name = elt_input.attr('value');
-console.log("conf_name is",conf_name);
-
-// Option
-var elt_input = $('[data-custom-type="conf_option"]');
-conf_option = elt_input.attr('value');
-console.log("conf_option is",conf_option);
-
-
-var initial_url = window.location.href;
-var url = new URL(initial_url);
-var search_params = url.searchParams;
-
-/*****************/
-/**   SUBMIT   **/
-/*****************/
-
-if (conf_pagetype == "submit")
-{
-	//var var_submit = window.location.pathname;
-	//search_params.set('trk_subm', var_submit);
-	
-	//////////
-	// path //
-	//////////
-	var var_submit = window.location.pathname;
-	if( var_submit != "")
-	{
-		// set url param
-		search_params.set('trk_subm_path', var_submit);
-		// set input value
-		var elt_input = $('[data-custom-type="trk_subm_path"]');
-		elt_input.attr('value',var_submit);
-		// set cookie
-		document.cookie = 'trk_subm_path='+var_submit;
-	}
-	
-	///////////
-	//  Name //
-	///////////
-	if( conf_name != "")
-	{
-		// set url param
-		search_params.set('trk_subm_name', conf_name);
-		// set input value
-		var elt_input = $('[data-custom-type="trk_subm_name"]');
-		elt_input.attr('value',conf_name);
-		// set cookie
-		document.cookie = 'trk_subm_name='+conf_name;
-	}
-	
-	
-	////////////
-	// Option //
-	////////////
-	if( conf_option != "")
-	{
-		// set url param
-		search_params.set('trk_subm_opt', conf_option);
-		// set input value
-		var elt_input = $('[data-custom-type="trk_subm_opt"]');
-		elt_input.attr('value',conf_option);
-		// set cookie
-		document.cookie = 'trk_subm_opt='+conf_option;
-	}
-}
-
-/*****************/
-/**   LANDING   **/
-/*****************/
-else if(conf_pagetype == "landing")
-{
-	//////////
-	// path //
-	//////////
-	var var_landing = window.location.pathname;
-	if( var_landing != "")
-	{		
-		// set url param
-		search_params.set('trk_lp_path', var_landing);
-		// set input value
-		var elt_input = $('[data-custom-type="trk_lp_path"]');
-		elt_input.attr('value',var_landing);
-		// set cookie
-		document.cookie = 'trk_lp_path='+var_landing;
-	}
-	
-	///////////
-	//  Name //
-	///////////
-	if( conf_name != "")
-	{
-		// set url param
-		search_params.set('trk_lp_name', conf_name);
-		// set input value
-		var elt_input = $('[data-custom-type="trk_lp_name"]');
-		elt_input.attr('value',conf_name);
-		// set cookie
-		document.cookie = 'trk_lp_name='+conf_name;
-	}
-	
-	
-	////////////
-	// Option //
-	////////////
-	if( conf_option != "")
-	{	
-		// set url param
-		search_params.set('trk_lp_opt', conf_option);
-		// set input value
-		var elt_input = $('[data-custom-type="trk_lp_opt"]');
-		elt_input.attr('value',conf_option);
-		// set cookie
-		document.cookie = 'trk_lp_opt='+conf_option;
-	}
-
-}
-
-url.search = search_params.toString();
-var new_url = url.toString();
-console.log(new_url);
-window.history.pushState({},{},new_url);	
-//window.history.replaceState({},{},new_url);
-
-
-/** Workarround **/
 function getCookie(cname) {
   var name = cname + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
@@ -161,23 +14,156 @@ function getCookie(cname) {
   return "";
 }
 
-// Subm path
-var_var_submit=getCookie("trk_subm_path");
-var elt_input = $('[data-custom-type="trk_subm_path"]');
-elt_input.attr('value',var_submit);
+
+/********************/
+/**   GET CONFIG   **/
+/********************/
+// PageType
+var elt_input = $('[data-custom-type="conf_pagetype"]');
+conf_pagetype = elt_input.attr('value');
+console.log("conf_pagetype is",conf_pagetype);
+
+// Name
+var elt_input = $('[data-custom-type="conf_name"]');
+conf_name = elt_input.attr('value');
+console.log("conf_name is",conf_name);
+
+// Option
+var elt_input = $('[data-custom-type="conf_option"]');
+conf_option = elt_input.attr('value');
+console.log("conf_option is",conf_option);
 
 
-// LP path
-var var_lp=getCookie("trk_lp_path");
+
+/*********************************************/
+/**   Add Data to Cookie and Custom Field   **/
+/*********************************************/
+// Current path
+current_path = window.location.pathname;
+// Remove first char (/)
+current_path = current_path.substr(1);
+
+
+/** Add data to cookie **/
+var TAB_PAGETYPE = new Array("landing", "submit");
+
+if(conf_pagetype != "")
+{
+	for(i=0; i<TAB_PAGETYPE.length;i++)
+	{
+		if(TAB_PAGETYPE[i] == conf_pagetype)
+		{
+			if(current_path != "")
+			{
+				document.cookie = 'trk_'+TAB_PAGETYPE[i]+'_path='+current_path;
+			}			
+			
+			if(conf_name != "")
+			{
+				document.cookie = 'trk_'+TAB_PAGETYPE[i]+'_name='+conf_name;
+			}	
+			
+			if(conf_option != "")
+			{
+				document.cookie = 'trk_'+TAB_PAGETYPE[i]+'_opt='+conf_option;
+			}			
+		}
+	}
+}
+
+
+/** Add data to custom field **/
+// if not empty, write Custom Field from cookie
+
+// LANDING //
+// path
+var cooki_lp_path =getCookie("trk_lp_path");
 var elt_input = $('[data-custom-type="trk_lp_path"]');
-elt_input.attr('value',var_lp);
+if(elt_input != "") { elt_input.attr('value',cooki_lp_path); }
+
+// name
+var cooki_lp_name =getCookie("trk_lp_name");
+var elt_input = $('[data-custom-type="trk_lp_name"]');
+if(elt_input != "") { elt_input.attr('value',cooki_lp_name); }
+
+// name
+var cooki_lp_opt =getCookie("trk_lp_opt");
+var elt_input = $('[data-custom-type="trk_lp_opt"]');
+if(elt_input != "") { elt_input.attr('value',cooki_lp_opt); }
+
+// SUBMIT //
+// path
+var cooki_subm_path = getCookie("trk_subm_path");
+var elt_input = $('[data-custom-type="trk_subm_path"]');
+if(elt_input != "") {elt_input.attr('value',cooki_subm_path); }
+
+// name
+var cooki_subm_name =getCookie("trk_subm_name");
+var elt_input = $('[data-custom-type="trk_subm_name"]');
+if(elt_input != "") { elt_input.attr('value',cooki_subm_name); }
+
+// name
+var cooki_subm_opt =getCookie("trk_subm_opt");
+var elt_input = $('[data-custom-type="trk_subm_opt"]');
+if(elt_input != "") { elt_input.attr('value',cooki_subm_opt); }
+
+
+
+/********************************************/
+/** Add current Data to Next parameter URL **/
+/********************************************/
+
+var initial_url = window.location.href;
+var url = new URL(initial_url);
+var search_params = url.searchParams;
+
+
+
+// Current path
+current_path = window.location.pathname;
+// Remove first char (/)
+current_path = current_path.substr(1);
+/**   SUBMIT   **/
+if (conf_pagetype == "submit")
+{
+	// path
+	if( current_path != ""){search_params.set('trk_subm_path', current_path);}
+	
+	//  Name
+	if( conf_name != ""){search_params.set('trk_subm_name', conf_name);}
+	
+	// Option 
+	if( conf_option != ""){search_params.set('trk_subm_opt', conf_option);}
+}
+
+/**   LANDING   **/
+else if(conf_pagetype == "landing")
+{
+	// path
+	if( current_path != ""){search_params.set('trk_lp_path', current_path);}
+	
+	//  Name
+	if( conf_name != ""){search_params.set('trk_lp_name', conf_name);}
+	
+	// Option 
+	if( conf_option != ""){search_params.set('trk_lp_opt', conf_option);}
+}
+
+url.search = search_params.toString();
+var new_url = url.toString();
+console.log(new_url);
+window.history.pushState({},{},new_url);	
+//window.history.replaceState({},{},new_url);
 
 
 
 
-/***************************************/
-/** Replace href link in all document **/
-/***************************************/
+
+
+/*******************************************************/
+/** ADD current URL parameter to all link of the page **/
+/** by Replacinh href link in all document 			  **/
+/*******************************************************/
 // filter utm_expid
 var utm_to_filter = new URL(new_url);
 var params_filter = new URLSearchParams(utm_to_filter.search.slice(1));
