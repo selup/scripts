@@ -164,7 +164,8 @@ params_filter.delete("utm_expid");
 console.log("params_filter is",params_filter.toString());
 
 
-var url_tmp = new URL(new_url);
+var url_tmp = url;
+//var url_tmp = new URL(new_url);
 url_tmp.search = params_filter.toString();
 var url_filtered = url_tmp.toString();
 console.log("url filtered is",url_filtered);
