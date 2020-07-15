@@ -110,7 +110,7 @@ if(elt_input != "") { elt_input.attr('value',cooki_subm_opt); }
 
 
 /********************************************/
-/** Add current Data to Next parameter URL **/
+/** Add current Data to NEXT parameter URL **/
 /********************************************/
 
 var initial_url = window.location.href;
@@ -150,14 +150,6 @@ else if(conf_pagetype == "landing")
 }
 
 url.search = search_params.toString();
-var new_url = url.toString();
-console.log(new_url);
-window.history.pushState({},{},new_url);	
-//window.history.replaceState({},{},new_url);
-
-
-
-
 
 
 /*******************************************************/
@@ -165,6 +157,8 @@ window.history.pushState({},{},new_url);
 /** by Replacinh href link in all document 			  **/
 /*******************************************************/
 // filter utm_expid
+var utm_to_filter = url;
+//var utm_to_filter = new URL(new_url);
 var utm_to_filter = new URL(new_url);
 var params_filter = new URLSearchParams(utm_to_filter.search.slice(1));
 params_filter.delete("utm_expid");
