@@ -1,5 +1,5 @@
 
-// Print forms (for debug only) - caution, all page with this form will be show
+// If code uncomment, print forms (for debug only) - caution, all page with this form will be show
 var elt_input = $('[data-title="row-trk"]');
 elt_input.attr('style','display:unset');
 
@@ -42,47 +42,38 @@ console.log("conf_option is",conf_option);
 
 
 
-/*********************************************/
-/**   Add Data to Cookie and Custom Field   **/
-/*********************************************/
+/************************/
+/** Add Data to Cookie **/
+/************************/
 // Current path
 current_path = window.location.pathname;
 // Remove first char (/)
 current_path = current_path.substr(1);
 
-
-/** Add data to cookie **/
-var TAB_PAGETYPE = new Array("landing", "submit");
-
-if(conf_pagetype != "")
+	
+/** LANDING **/
+if(conf_pagetype = "landing")
 {
-	for(i=0; i<TAB_PAGETYPE.length;i++)
-	{
-		if(TAB_PAGETYPE[i] == conf_pagetype)
-		{
-			if(current_path != "")
-			{
-				document.cookie = 'trk_'+TAB_PAGETYPE[i]+'_path='+current_path;
-			}			
-			
-			if(conf_name != "")
-			{
-				document.cookie = 'trk_'+TAB_PAGETYPE[i]+'_name='+conf_name;
-			}	
-			
-			if(conf_option != "")
-			{
-				document.cookie = 'trk_'+TAB_PAGETYPE[i]+'_opt='+conf_option;
-			}			
-		}
-	}
+	document.cookie = 'trk_lp_path='+current_path;
+	document.cookie = 'trk_lp_name='+conf_name;
+	document.cookie = 'trk_lp_opt='+conf_option;
+}
+else if(conf_pagetype = "submit")
+{
+	document.cookie = 'trk_subm_path='+current_path;
+	document.cookie = 'trk_subm_name='+conf_name;
+	document.cookie = 'trk_subm_opt='+conf_option;
 }
 
 
-/** Add data to custom field **/
+
+
+/******************************/
+/** Add Data to Custom Field **/
+/******************************/
 // if not empty, write Custom Field from cookie
 
-// LANDING //
+/** LANDING **/
 // path
 var cooki_lp_path =getCookie("trk_lp_path");
 var elt_input = $('[data-custom-type="trk_lp_path"]');
@@ -98,7 +89,7 @@ var cooki_lp_opt =getCookie("trk_lp_opt");
 var elt_input = $('[data-custom-type="trk_lp_opt"]');
 if(elt_input != "") { elt_input.attr('value',cooki_lp_opt); }
 
-// SUBMIT //
+/** SUBMIT **/
 // path
 var cooki_subm_path = getCookie("trk_subm_path");
 var elt_input = $('[data-custom-type="trk_subm_path"]');
