@@ -1,5 +1,5 @@
 var elt_input = $('[data-title="row-trk"]');
-elt_input.display = none;
+elt_input.display = "none";
 
 
 
