@@ -159,7 +159,6 @@ url.search = search_params.toString();
 // filter utm_expid
 var utm_to_filter = url;
 //var utm_to_filter = new URL(new_url);
-var utm_to_filter = new URL(new_url);
 var params_filter = new URLSearchParams(utm_to_filter.search.slice(1));
 params_filter.delete("utm_expid");
 console.log("params_filter is",params_filter.toString());
