@@ -1,5 +1,6 @@
 var elt_input = $('[data-title="row-trk"]');
-elt_input.style.display = "none";
+//elt_input.style.display = "none";
+elt_input.setAttribute('style','display=none');
 
 
 function getCookie(cname) {
