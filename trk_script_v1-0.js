@@ -1,7 +1,7 @@
 
 // Print forms (for debug only) - caution, all page with this form will be show
 var elt_input = $('[data-title="row-trk"]');
-elt_input.attr('style','display:""');
+elt_input.attr('style','display:unset');
 
 
 
