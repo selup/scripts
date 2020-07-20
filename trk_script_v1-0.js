@@ -26,16 +26,14 @@ function getCookie(cname) {
 /**********************/
 /**   WRITE COOKIE   **/
 /**********************/
-
+// encrypt , change variable name
 // email
 /*
 var elt_input = $('[name="email"]');
 cookie_email = elt_input.attr('value');
 */
 
-var elt_tmp = document.getElementsByName("email")[0];
-
-elt_tmp.oninput = function()
+document.getElementsByName("email")[0].oninput = function()
 {
 	var cookie_email = document.getElementsByName("email")[0].value;
 	console.log("email is",cookie_email);
