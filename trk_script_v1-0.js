@@ -28,8 +28,11 @@ function getCookie(cname) {
 /**********************/
 
 // email
+/*
 var elt_input = $('[name="email"]');
 cookie_email = elt_input.attr('value');
+*/
+cookie_email = document.getElementsByName("acc")[0].value;
 console.log("email is",cookie_email);
 
 
