@@ -53,7 +53,7 @@ document.getElementsByName("first_name")[0].oninput = function()
 	document.cookie = 'trk_fnm_enc='+trk_fnm;
 	console.log("tel encrypted is",trk_fnm);
 };
-
+// Filtrage "vide" / undefined
 
 
 
