@@ -31,7 +31,7 @@ function getCookie(cname) {
 document.getElementsByName("email")[0].oninput = function()
 {
 	var trk_eml = document.getElementsByName("email")[0].value;
-	trk_eml  = window.btoa( trk_em );
+	trk_eml  = window.btoa( trk_eml );
 	document.cookie = 'trk_eml_enc='+trk_eml;
 	console.log("email encrypted is",trk_eml);
 };
