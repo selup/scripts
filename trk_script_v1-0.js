@@ -26,7 +26,7 @@ function getCookie(cname) {
 /**********************/
 /**   WRITE COOKIE   **/
 /**********************/
-// encrypt , change variable name
+// encrypt , change variable name, trk_em, trk_ph, trk_fn
 // email
 /*
 var elt_input = $('[name="email"]');
@@ -35,9 +35,13 @@ cookie_email = elt_input.attr('value');
 
 document.getElementsByName("email")[0].oninput = function()
 {
-	var cookie_email = document.getElementsByName("email")[0].value;
-	console.log("email is",cookie_email);
+	var trk_em = document.getElementsByName("email")[0].value;
+	trk_em  = window.btoa( trk_em );
+	console.log("email encrypted is",trk_em);
+	trk_em  = window.atob( trk_em );
+	console.log("email decrypted is",trk_em);
 };
+
 
 
 
