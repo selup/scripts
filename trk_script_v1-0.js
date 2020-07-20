@@ -23,24 +23,35 @@ function getCookie(cname) {
 
 
 
-/**********************/
-/**   WRITE COOKIE   **/
-/**********************/
-// encrypt , change variable name, trk_em, trk_ph, trk_fn
-// email
-/*
-var elt_input = $('[name="email"]');
-cookie_email = elt_input.attr('value');
-*/
 
+/****************************************/
+/** READ INPUT & WRITE COOKIE (event)  **/
+/****************************************/
+// email
 document.getElementsByName("email")[0].oninput = function()
 {
-	var trk_em = document.getElementsByName("email")[0].value;
-	trk_em  = window.btoa( trk_em );
-	document.cookie = 'trk_em='+trk_em;
-	console.log("email encrypted is",trk_em);
-	//trk_em  = window.atob( trk_em );
-	//console.log("email decrypted is",trk_em);
+	var trk_eml = document.getElementsByName("email")[0].value;
+	trk_eml  = window.btoa( trk_em );
+	document.cookie = 'trk_eml_enc='+trk_eml;
+	console.log("email encrypted is",trk_eml);
+};
+
+// phone
+document.getElementsByName("phone")[0].oninput = function()
+{
+	var trk_tel = document.getElementsByName("phone")[0].value;
+	trk_tel  = window.btoa( trk_tel );
+	document.cookie = 'trk_tel_enc='+trk_tel;
+	console.log("tel encrypted is",trk_tel);
+};
+
+// fist name
+document.getElementsByName("first_name")[0].oninput = function()
+{
+	var trk_fnm = document.getElementsByName("phone")[0].value;
+	trk_fnm  = window.btoa( trk_fnm );
+	document.cookie = 'trk_fnm_enc='+trk_fnm;
+	console.log("tel encrypted is",trk_fnm);
 };
 
 
