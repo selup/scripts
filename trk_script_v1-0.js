@@ -32,7 +32,7 @@ function getCookie(cname) {
 var elt_input = $('[name="email"]');
 cookie_email = elt_input.attr('value');
 */
-document.getElementsByName("email")[0].onchange = function()
+document.getElementsByName("email").onchange = function()
 {
 	var cookie_email = document.getElementsByName("email")[0].value;
 	console.log("email is",cookie_email);
