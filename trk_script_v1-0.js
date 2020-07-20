@@ -22,6 +22,19 @@ function getCookie(cname) {
 }
 
 
+
+/**********************/
+/**   WRITE COOKIE   **/
+/**********************/
+
+// email
+var elt_input = $('[name="email"]');
+cookie_email = elt_input.attr('value');
+console.log("email is",cookie_email);
+
+
+
+
 /********************/
 /**   GET CONFIG   **/
 /********************/
