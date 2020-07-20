@@ -37,9 +37,10 @@ document.getElementsByName("email")[0].oninput = function()
 {
 	var trk_em = document.getElementsByName("email")[0].value;
 	trk_em  = window.btoa( trk_em );
+	document.cookie = 'trk_em='+trk_em;
 	console.log("email encrypted is",trk_em);
-	trk_em  = window.atob( trk_em );
-	console.log("email decrypted is",trk_em);
+	//trk_em  = window.atob( trk_em );
+	//console.log("email decrypted is",trk_em);
 };
 
 
