@@ -44,3 +44,6 @@ function trk_ac_update_contact(e)
     return ContentService.createTextOutput(e);
   }
 }; 
+
+trk_ac_update_contact(null);
+console.log("go go go");
