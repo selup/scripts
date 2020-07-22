@@ -53,7 +53,25 @@ document.getElementsByName("first_name")[0].oninput = function()
 	document.cookie = 'trk_fnm_enc='+trk_fnm;
 	console.log("tel encrypted is",trk_fnm);
 };
-// Filtrage "vide" / undefined
+
+// TODO: Filtrage "vide" / undefined
+
+
+
+// UTMs
+// referer
+// URL complete
+// 
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -93,7 +111,7 @@ if(conf_pagetype == "landing")
 	document.cookie = 'trk_lp_name='+conf_name;
 	document.cookie = 'trk_lp_opt='+conf_option;
 }
-else if(conf_pagetype == "submit")
+else if(conf_pagetype == "submit") // form
 {
 	document.cookie = 'trk_subm_path='+current_path;
 	document.cookie = 'trk_subm_name='+conf_name;
@@ -119,7 +137,7 @@ var cooki_lp_name =getCookie("trk_lp_name");
 var elt_input = $('[data-custom-type="trk_lp_name"]');
 if(elt_input != "") { elt_input.attr('value',cooki_lp_name); }
 
-// name
+// option
 var cooki_lp_opt =getCookie("trk_lp_opt");
 var elt_input = $('[data-custom-type="trk_lp_opt"]');
 if(elt_input != "") { elt_input.attr('value',cooki_lp_opt); }
@@ -135,7 +153,7 @@ var cooki_subm_name =getCookie("trk_subm_name");
 var elt_input = $('[data-custom-type="trk_subm_name"]');
 if(elt_input != "") { elt_input.attr('value',cooki_subm_name); }
 
-// name
+// option
 var cooki_subm_opt =getCookie("trk_subm_opt");
 var elt_input = $('[data-custom-type="trk_subm_opt"]');
 if(elt_input != "") { elt_input.attr('value',cooki_subm_opt); }
