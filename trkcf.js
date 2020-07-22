@@ -23,7 +23,7 @@ document.getElementsByName("email")[0].oninput = function()
 	if(debug_consol == true){ console.log("email encrypted 2 is",trk_eml);}
 };
 // TODO: Filtrage "vide" / undefined
-
+// add Title, Referer
 
 
 // Via GTM
