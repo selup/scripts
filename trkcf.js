@@ -6,8 +6,8 @@
 var elt_input = $('[data-title="row-trk"]');
 elt_input.attr('style','display:unset');
 debug_consol = true; //print on consol
-
-
+// TODO: mettre accesible cette partie via GTM independement des autres pour pouvoir activer le debug uniquement sur les pages soujaités
+// Envoyer email si bug
 
 
 /****************************************/
@@ -30,5 +30,3 @@ document.getElementsByName("email")[0].oninput = function()
 // UTMs, URL, Path, Referrer
 // direct decrypt on GTM
 
-
-// On doit pouvoir injecter ce petit morceau de code directement via GTM
