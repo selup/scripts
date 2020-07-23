@@ -7,11 +7,5 @@ function trk_ac_update_contact(contact)
 	Http.open("GET", url);
 	Http.send();
 
-/*
-	Http.onreadystatechange = (e) => 
-	{
-	  console.log(Http.responseText)
-	}
-	*/
 }
 
