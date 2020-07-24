@@ -18,7 +18,7 @@ async function sha256(message) {
 */
 
 
-function() {
-  var hash = CryptoJS.SHA256({{Email - not encrypted}});
+function sha256(message) {
+  var hash = CryptoJS.SHA256(message);
   return hash;    
 }
