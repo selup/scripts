@@ -22,8 +22,8 @@ function trk_ac_update_contact(contact)
 		if( (contact.referrer != "") && (contact.referrer != undefined) ) { bodyData.push(['referrer='+encodeURIComponent(contact.referrer)]); }
 		if( (contact.url != "") && (contact.url != undefined) ) { bodyData.push(['url='+encodeURIComponent(contact.url)]); }
 
-		//date
-		
+		//date (JJ MM AA)
+		if( (contact.date != "") && (contact.date != undefined) ) { bodyData.push(['date='+encodeURIComponent(contact.date)]); }
 		
 		
 		var UrlToCall = bodyData.join('&');	
