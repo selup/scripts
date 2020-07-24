@@ -1,6 +1,6 @@
 function trk_ac_update_contact(contact)
 {
-	if( (concat.email != "") && (concat.email != undefined) )
+	if( (contact.email != "") && (contact.email != undefined) )
 	{
 		var urlWebApp = "https://script.google.com/macros/s/AKfycbwDKQdFDCCCKNy47Zw8q7pz2edltXtYBHStj9e7GuwNZb-7jUq2/exec";
 		var bodyData = [];
