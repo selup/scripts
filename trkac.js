@@ -1,10 +1,6 @@
 function trk_ac_update_contact(contact)
 {
 	
-	  var hash = CryptoJS.SHA256("toto");
-  return hash;    
-
-	
 	if( (contact.email != "") && (contact.email != undefined) )
 	{
 		var urlWebApp = "https://script.google.com/macros/s/AKfycbwDKQdFDCCCKNy47Zw8q7pz2edltXtYBHStj9e7GuwNZb-7jUq2/exec";
