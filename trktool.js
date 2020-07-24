@@ -1,19 +1,52 @@
 
 
+//verif email
 /*
-async function sha256(message) {
-    // encode as UTF-8
-    const msgBuffer = new TextEncoder('utf-8').encode(message);                    
-
-    // hash the message
-    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-
-    // convert ArrayBuffer to Array
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-
-    // convert bytes to hex string                  
-    const hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
-    return hashHex;
+function() {
+  // Test email address first
+  function emailIsValid (email) {
+    return /\S+@\S+\.\S+/.test(email)
+  }
+  // If email address is valid, hash it
+  if (emailIsValid({{visitorEmail}})) {
+    var hash = sha256({{visitorEmail}});
+    return hash;
+  } else {
+    return undefined;
+  }
 }
 */
 
+
+function trk_GetDateString()
+{
+	
+	var today = new Date();
+	var dd = today.getDate();
+
+	var mm = today.getMonth()+1; 
+	var yyyy = today.getFullYear();
+	if(dd<10) 
+	{
+		dd='0'+dd;
+	} 
+
+	if(mm<10) 
+	{
+		mm='0'+mm;
+	} 
+	/*
+	today = mm+'-'+dd+'-'+yyyy;
+	console.log(today);
+	today = mm+'/'+dd+'/'+yyyy;
+	console.log(today);
+	today = dd+'-'+mm+'-'+yyyy;
+	console.log(today);
+	*/
+	today = dd+'/'+mm+'/'+yyyy;
+	console.log(today);	
+		
+	
+	var var_date = today;
+	return var_date;
+}
