@@ -20,7 +20,7 @@ function trk_ac_update_contact(contact)
 		
 		
 		var Http = new XMLHttpRequest();
-		Http.open("GET", UrlEncoded);
+		Http.open("GET", UrlToCall);
 		Http.send();
 	}
 }
