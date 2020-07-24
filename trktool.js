@@ -42,11 +42,11 @@ function trk_GetDateString()
 	console.log(today);
 	today = dd+'-'+mm+'-'+yyyy;
 	console.log(today);
-	*/
 	today = dd+'/'+mm+'/'+yyyy;
 	console.log(today);	
-		
+	*/
 	
-	var var_date = today;
-	return var_date;
+	today = yyyy+'/'+mm+'/'+dd;
+	console.log(today);		
+	return today;
 }
