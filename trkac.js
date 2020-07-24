@@ -8,7 +8,7 @@ function trk_ac_update_contact(contact)
 		bodyData.push
 		( 
 			if( (contact.utm_source != "") && (contact.utm_source != undefined) )  { ['utm_source='+contact.utm_source] }
-			if( (contact.utm_campaign != "") && (contact.utm_campaign != undefined) )  { ['utm_campaign='+contact.utm_campaign] }
+			//if( (contact.utm_campaign != "") && (contact.utm_campaign != undefined) )  { ['utm_campaign='+contact.utm_campaign] }
 		);	
 		//var UrlToCall = bodyData.map(function(el){el[1] = encodeURIComponent(el[1]); return el.join('=')}).join('&');
 		var UrlToCall = bodyData.join('&');
