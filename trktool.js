@@ -17,8 +17,3 @@ async function sha256(message) {
 }
 */
 
-
-function sha256(message) {
-  var hash = CryptoJS.SHA256(message);
-  return hash;    
-}
