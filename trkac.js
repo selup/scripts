@@ -16,7 +16,8 @@ function trk_ac_update_contact(contact)
 		if( (contact.utm_content != "") && (contact.utm_content != undefined) ) { bodyData.push(['utm_content='+contact.utm_content]); }
 		
 		var UrlToCall = bodyData.join('&');	
-		var UrlEncoded = encodeURIComponent(UrlToCall);
+		console.log("url is:"+UrlToCall);
+		//var UrlEncoded = encodeURIComponent(UrlToCall);
 		
 		
 		var Http = new XMLHttpRequest();
