@@ -6,10 +6,12 @@ function trk_ac_update_contact(contact)
 		var bodyData = [];
 		bodyData.push ("https://script.google.com/macros/s/AKfycbwDKQdFDCCCKNy47Zw8q7pz2edltXtYBHStj9e7GuwNZb-7jUq2/exec"+"?email="+contact.email) ;
 		bodyData.push
+
 		( 
-			['utm_source' , contact.utm_source]
+			['utm_source=' , contact.utm_source]
 		);	
-		var UrlToCall = bodyData.map(function(el){el[1] = encodeURIComponent(el[1]); return el.join('=')}).join('&');
+		//var UrlToCall = bodyData.map(function(el){el[1] = encodeURIComponent(el[1]); return el.join('=')}).join('&');
+		var UrlToCall = bodyData.join('&');
 		
 		var Http = new XMLHttpRequest();
 		//var url='https://script.google.com/macros/s/AKfycbwDKQdFDCCCKNy47Zw8q7pz2edltXtYBHStj9e7GuwNZb-7jUq2/exec'+'?email='+contact.email;
