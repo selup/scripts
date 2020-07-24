@@ -10,6 +10,22 @@ debug_consol = true; //print on consol
 // Envoyer email si bug
 
 
+
+
+
+
+async function encodeSHA256(message) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(message);
+  const hash = await crypto.subtle.digest('SHA-256', data);
+  return hash;
+}
+
+
+
+
+
+
 /****************************************/
 /** READ INPUT & WRITE COOKIE (event)  **/
 /****************************************/
