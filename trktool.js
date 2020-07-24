@@ -1,3 +1,6 @@
+
+
+/*
 async function sha256(message) {
     // encode as UTF-8
     const msgBuffer = new TextEncoder('utf-8').encode(message);                    
@@ -11,4 +14,11 @@ async function sha256(message) {
     // convert bytes to hex string                  
     const hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
     return hashHex;
+}
+*/
+
+
+function() {
+  var hash = CryptoJS.SHA256({{Email - not encrypted}});
+  return hash;    
 }
