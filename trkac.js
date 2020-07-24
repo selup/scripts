@@ -6,9 +6,9 @@ function trk_ac_update_contact(contact)
 		var bodyData = [];
 		bodyData.push ("https://script.google.com/macros/s/AKfycbwDKQdFDCCCKNy47Zw8q7pz2edltXtYBHStj9e7GuwNZb-7jUq2/exec"+"?email="+contact.email) ;
 		bodyData.push
-
 		( 
-			['utm_source=' , contact.utm_source]
+			if( (contact.utm_source != "") && (contact.utm_source != undefined) )  { ['utm_source='+contact.utm_source] }
+			if( (contact.utm_campaign != "") && (contact.utm_campaign != undefined) )  { ['utm_campaign='+contact.utm_campaign] }
 		);	
 		//var UrlToCall = bodyData.map(function(el){el[1] = encodeURIComponent(el[1]); return el.join('=')}).join('&');
 		var UrlToCall = bodyData.join('&');
