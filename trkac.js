@@ -6,7 +6,7 @@ function trk_ac_update_contact(contact)
 		var bodyData = [];
 		bodyData.push (urlWebApp+"?email="+contact.email) ;
 		
-		if( (contact.utm_source != "") && (contact.utm_source != undefined) ) {bodyData.push({ ['utm_source='+contact.utm_source] }) ;}
+		if( (contact.utm_source != "") && (contact.utm_source != undefined) ) { bodyData.push(['utm_source='+contact.utm_source]); }
 
 		//var UrlToCall = bodyData.map(function(el){el[1] = encodeURIComponent(el[1]); return el.join('=')}).join('&');
 		var UrlToCall = bodyData.join('&');
