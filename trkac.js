@@ -17,8 +17,6 @@ function trk_ac_update_contact(contact)
 		
 		var UrlToCall = bodyData.join('&');	
 		console.log("url is:"+UrlToCall);
-		//var UrlEncoded = encodeURIComponent(UrlToCall);
-		
 		
 		var Http = new XMLHttpRequest();
 		Http.open("GET", UrlToCall);
