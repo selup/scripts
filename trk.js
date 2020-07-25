@@ -235,7 +235,7 @@ var trk =
 	url: null,
 	email: null,
 	userID: null,
-	GetEmail: function() { trk_GetEmail(); }
+	GetEmail: function() { trk_GetEmail(); },
 	SetEvent: function() { trk_SetEvent(); }
 };
 
