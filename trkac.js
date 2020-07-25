@@ -12,7 +12,7 @@
 var	TRKDBG_FUNCIN = true;	// Enter in all function
 var	TRKDBG_AC_UPDATE_CONTACT = false;	
 var	TRKDBG_GET_DATE_STRING = false;
-var	TRKDBG_GET_EMAIL_ON_EVENT = true;
+var	TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT = true;
 
 
 //////////////////
@@ -97,19 +97,23 @@ function trk_GetDateString()
 
 
 //if email input exsit, create a event to read it 
-function trk_GetEmailOnEvent()
+function trk_WriteEmailOnLocalStorageOnEvent()
 {
-	if(TRKDBG_FUNCIN) {console.log("=>trk_GetEmailOnEvent()");}
+	if(TRKDBG_FUNCIN) {console.log("=>trk_WriteEmailOnLocalStorageOnEvent()");}
 	
 	if(document.getElementsByName("email")[0])
 	{
 		var trk_eml = document.getElementsByName("email")[0].value; //if email already present
+		trk_eml  = window.btoa( trk_eml );
+		localStorage.setItem("trk_eml_enc", trk_eml); 
+		if(TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT) {console.log("email gets on event is:"+trk_eml);}
+		
 		document.getElementsByName("email")[0].oninput = function()
 		{
 			var trk_eml = document.getElementsByName("email")[0].value;
 			trk_eml  = window.btoa( trk_eml );
 			localStorage.setItem("trk_eml_enc", trk_eml); 
-			if(TRKDBG_GET_EMAIL_ON_EVENT) {console.log("email gets on event is:"+trk_eml);}
+			if(TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT) {console.log("email gets on event is:"+trk_eml);}
 		};
 	}
 }
