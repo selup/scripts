@@ -13,6 +13,7 @@ var	TRKDBG_FUNCIN = true;	// Enter in all function
 var	TRKDBG_AC_UPDATE_CONTACT = false;	
 var	TRKDBG_GET_DATE_STRING = false;
 var	TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT = true; 
+var	TRKDBG_GETEMAIL = true;
 
 
 //////////////////
@@ -209,6 +210,18 @@ function trk_SetEvent(str_evt,property)
 }
 */
 
+function trk_GetEmail()
+{
+	if(TRKDBG_FUNCIN) {console.log("=>"+this.name+"()");}
+	var value_encoded = localStorage.getItem('trk_eml_enc');
+	if(value_encoded) {var value_decoded = window.atob(value_encoded);}
+	if(TRKDBG_GETEMAIL){ 
+		console.log("email encoded is:"+value_encoded);  
+		console.log("email decoded is:"+value_decoded); }
+	return value_decoded;  	
+}
+
+
 function trk_SetEvent()
 {
 	console.log("set event");
@@ -222,7 +235,7 @@ var trk =
 	url: null,
 	email: null,
 	userID: null,
-	//GetEmail: function() { trk_GetEmail(); }
+	GetEmail: function() { trk_GetEmail(); }
 	SetEvent: function() { trk_SetEvent(); }
 };
 
