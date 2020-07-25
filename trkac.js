@@ -34,7 +34,7 @@ function trk_ac_update_contact(contact)
 		
 		
 		var UrlToCall = bodyData.join('&');	
-		console.log("url is:"+UrlToCall);
+		if({{trk_debug_variable}} {console.log("url is:"+UrlToCall);}
 		
 		var Http = new XMLHttpRequest();
 		Http.open("GET", UrlToCall);
