@@ -1,3 +1,6 @@
+// Global constants
+const	TRKDBG_UPDATEAC = false;	
+
 function trk_ac_update_contact(contact)
 {
 	
@@ -34,7 +37,7 @@ function trk_ac_update_contact(contact)
 		
 		
 		var UrlToCall = bodyData.join('&');	
-		if({{trk_debug_variable}} {console.log("url is:"+UrlToCall);}
+		if({{TRKDBG_UPDATEAC}} {console.log("url is:"+UrlToCall);}
 		
 		var Http = new XMLHttpRequest();
 		Http.open("GET", UrlToCall);
