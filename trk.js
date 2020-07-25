@@ -23,9 +23,7 @@ var TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT = true;
 //////////////////
 // Load scripts //
 //////////////////
-<script type="text/javascript" src="https://selup.github.io/scripts/fingerprint2.js"></script>
-
-
+import "https://selup.github.io/scripts/fingerprint2.js";
 
 
 ///////////////
