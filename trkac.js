@@ -103,6 +103,7 @@ function trk_GetEmailOnEvent()
 	
 	if(document.getElementsByName("email")[0])
 	{
+		var trk_eml = document.getElementsByName("email")[0].value; //if email already present
 		document.getElementsByName("email")[0].oninput = function()
 		{
 			var trk_eml = document.getElementsByName("email")[0].value;
