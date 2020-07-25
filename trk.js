@@ -239,6 +239,7 @@ var trk =
    url: null,
    email: null,
    userID: null,
+   anonymousId: null
 };
 
 
