@@ -28,6 +28,8 @@ function trk_ac_update_contact(contact)
 		// FISCA LANDING
 		if( (contact.fisca_landing_url != "") && (contact.fisca_landing_url != undefined) ) { bodyData.push(['fisca_landing_url='+encodeURIComponent(contact.fisca_landing_url)]);}
 		if( (contact.fisca_landing_date != "") && (contact.fisca_landing_date != undefined) ) { bodyData.push(['fisca_landing_date='+encodeURIComponent(contact.fisca_landing_date)]);}
+		if( (contact.fisca_optin_url != "") && (contact.fisca_optin_url != undefined) ) { bodyData.push(['fisca_optin_url='+encodeURIComponent(contact.fisca_optin_url)]);}
+		if( (contact.fisca_optin_date != "") && (contact.fisca_optin_date != undefined) ) { bodyData.push(['fisca_optin_date='+encodeURIComponent(contact.fisca_optin_date)]);}
 		
 		
 		
