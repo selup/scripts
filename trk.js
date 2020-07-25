@@ -75,8 +75,6 @@ function trk_GetDateString()
 {
 	if(TRKDBG_FUNCIN) {console.log("=>trk_GetDateString()");}
 	
-	console.log("test read utm"+{{trk_utm_source}});
-	
 	var today = new Date();
 	var dd = today.getDate();
 
