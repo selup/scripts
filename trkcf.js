@@ -12,22 +12,19 @@ debug_consol = true; //print on consol
 
 
 /****************************************/
-/** READ INPUT & WRITE COOKIE (event)  **/
+/** READ INPUT & WRITE COOKIE (event)  **/ 
 /****************************************/
-// email
-document.getElementsByName("email")[0].oninput = function()
+if(document.getElementsByName("email")[0])
 {
-	var trk_eml = document.getElementsByName("email")[0].value;
-	trk_eml  = window.btoa( trk_eml );
-	//document.cookie = 'trk_eml_enc='+trk_eml;
-	localStorage.setItem("trk_eml_enc", trk_eml); 
-	if(debug_consol == true){ console.log("email encrypted 2 is",trk_eml);}
-};
-// TODO: Filtrage "vide" / undefined
-// add Title, Referer
+	document.getElementsByName("email")[0].oninput = function()
+	{
+		var trk_eml = document.getElementsByName("email")[0].value;
+		trk_eml  = window.btoa( trk_eml );
+		//document.cookie = 'trk_eml_enc='+trk_eml;
+		localStorage.setItem("trk_eml_enc", trk_eml); 
+		if(debug_consol == true){ console.log("email encrypted 2 is",trk_eml);}
+	};
+}
+//else read try to read cookie
 
-
-// Via GTM
-// UTMs, URL, Path, Referrer
-// direct decrypt on GTM
  
