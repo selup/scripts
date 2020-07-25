@@ -1,6 +1,6 @@
 // Global constants
-const	TRKDBG_UPDATEAC = false;	
-const	TRKDBG_FUNCIN = true;	// Enter in all function
+var	TRKDBG_UPDATEAC = false;	
+var	TRKDBG_FUNCIN = true;	// Enter in all function
 
 function trk_ac_update_contact(contact)
 {
