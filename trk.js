@@ -276,12 +276,14 @@ if (window.requestIdleCallback) {
   requestIdleCallback(function () {
     Fingerprint2.get(function (components) {
       console.log(components) // an array of components: {key: ..., value: ...}
+      console.log(Fingerprint2);
     })
   })
 } else {
   setTimeout(function () {
     Fingerprint2.get(function (components) {
       console.log(components) // an array of components: {key: ..., value: ...}
+      console.log(Fingerprint2);
     })  
   }, 500)
 }
