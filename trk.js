@@ -270,6 +270,22 @@ var trk =
 // load event for catching email
 trk_WriteEmailOnLocalStorageOnEvent();
 
+
+var fingerprint; // Variable to allow the Google Tag Manager to capture the data after this script has run.
+if (window.requestIdleCallback) {
+  requestIdleCallback(function () {
+    Fingerprint2.get(function (components) {
+      console.log(components) // an array of components: {key: ..., value: ...}
+    })
+  })
+} else {
+  setTimeout(function () {
+    Fingerprint2.get(function (components) {
+      console.log(components) // an array of components: {key: ..., value: ...}
+    })  
+  }, 500)
+}
+
 console.log(fingerprint);
 
 
