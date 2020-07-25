@@ -14,6 +14,7 @@ var TRKDBG_AC_UPDATE_CONTACT = false;
 var TRKDBG_GET_DATE_STRING = false;
 var TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT = true;
 var TRKDBG_GETEMAIL = true;
+var TRKDBG_GETUSERID = true;
 
 
 //////////////////
@@ -212,6 +213,20 @@ function trk_GetEmail() {
    return value_decoded;
 }
 
+
+function trk_GetUserID() {
+   if (TRKDBG_FUNCIN) { console.log("=>" + function.name + "()"); }
+   var value = localStorage.getItem('trk_eml_enc');
+   if(value)
+   {
+      var eml = window.atob(value);
+      var eml_encoded = sha256(eml);
+      if(TRKDBG_GETUSERID){
+         console.log("email befor sha256 is:"+eml);
+         console.log("email sha256 is:"+eml_encoded.toString());  }
+   }
+   return eml_encoded;  
+}
 
 function trk_SetEvent() {
    console.log("set event");
