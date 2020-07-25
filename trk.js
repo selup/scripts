@@ -213,9 +213,9 @@ function trk_GetEmail() {
    return value_decoded;
 }
 
-
+/*
 function trk_GetUserID() {
-   //if (TRKDBG_FUNCIN) { console.log("=>" + function.name + "()"); }
+   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
    var value = localStorage.getItem('trk_eml_enc');
    if(value)
    {
@@ -227,11 +227,26 @@ function trk_GetUserID() {
    }
    return eml_encoded;  
 }
+*/
 
-
+function trk_GetUserID() {
+   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
+   var value = this.email;
+   if(value)
+   {
+      var eml = window.atob(value);
+      var eml_encoded = sha256(eml);
+      if(TRKDBG_GETUSERID){
+         console.log("email befor sha256 is:"+eml);
+         console.log("email sha256 is:"+eml_encoded.toString());  }
+   }
+   return eml_encoded;  
+}
 
 function trk_SetEvent() {
-   console.log("set event");
+   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
+   GetEmail();
+   GetUserID();
 }
 
 /////////////
