@@ -10,11 +10,14 @@
 //////////////////////
 // Debug settings
 var TRKDBG_FUNCIN = true;	// Enter in all function
+var TRKDBG_VERBOSE = true;
+
 var TRKDBG_AC_UPDATE_CONTACT = false;
 var TRKDBG_GET_DATE_STRING = false;
 var TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT = true;
-var TRKDBG_GETEMAIL = true;
-var TRKDBG_GETUSERID = true;
+
+
+
 
 
 //////////////////
@@ -206,48 +209,27 @@ function trk_GetEmail() {
    if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
    var value_encoded = localStorage.getItem('trk_eml_enc');
    if (value_encoded) { var value_decoded = window.atob(value_encoded); }
-   if (TRKDBG_GETEMAIL) {
+   if (TRKDBG_VERBOSE) {
       console.log("email encoded is:" + value_encoded);
       console.log("email decoded is:" + value_decoded);
    }
    return value_decoded;
 }
 
-/*
-function trk_GetUserID() {
-   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
-   var value = localStorage.getItem('trk_eml_enc');
-   if(value)
-   {
-      var eml = window.atob(value);
-      var eml_encoded = sha256(eml);
-      if(TRKDBG_GETUSERID){
-         console.log("email befor sha256 is:"+eml);
-         console.log("email sha256 is:"+eml_encoded.toString());  }
-   }
-   return eml_encoded;  
-}
-*/
 
-function trk_GetUserID() {
+function trk_MakeUserID(email) {
    if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
-   var value = this.email;
-   if(value)
+
+   if(email)
    {
-      var eml = window.atob(value);
-      var eml_encoded = sha256(eml);
-      if(TRKDBG_GETUSERID){
+      var email_sha256encoded = sha256(email);
+      if(TRKDBG_VERBOSE){
          console.log("email befor sha256 is:"+eml);
-         console.log("email sha256 is:"+eml_encoded.toString());  }
+         console.log("email sha256 is:"+email_sha256encoded.toString());  }
    }
-   return eml_encoded;  
+   return email_sha256encoded;  
 }
 
-function trk_SetEvent() {
-   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
-   this.GetEmail();
-   this.GetUserID();
-}
 
 /////////////
 // Main () //
@@ -257,9 +239,6 @@ var trk =
    url: null,
    email: null,
    userID: null,
-   GetEmail: function () { trk_GetEmail(); },
-   GetUserID: function () { trk_GetUserID(); },
-   SetEvent: function () { trk_SetEvent(); }
 };
 
 
