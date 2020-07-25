@@ -255,7 +255,7 @@ var trk =
 
 
 // Load sha256.js in special mode for GTM
-/*
+
 (function () {
    if (TRKDBG_FUNCIN) { console.log("=>load sha256.js()"); }
    var script = document.createElement('script');
@@ -265,11 +265,12 @@ var trk =
    script.setAttribute('crossorigin', 'anonymous');
    document.getElementsByTagName('head')[0].appendChild(script);
 })();
-*/
+
 
 // load event for catching email
 trk_WriteEmailOnLocalStorageOnEvent();
 
+console.log(fingerprint);
 
 
 // Get Data ..
@@ -280,6 +281,7 @@ trk_WriteEmailOnLocalStorageOnEvent();
 
 
 // track LP without email.. (store on cookies) // mecanism cookie/localstorage
+
 
 
 
