@@ -17,7 +17,7 @@ function() {
 }
 */
 
-
+/*
 function trk_GetDateString()
 {
 	
@@ -39,3 +39,4 @@ function trk_GetDateString()
 	today = yyyy+'/'+mm+'/'+dd;	
 	return today;
 }
+*/
