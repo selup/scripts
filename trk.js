@@ -202,7 +202,7 @@ function trk_SetEvent(str_evt,property)
 */
 
 function trk_GetEmail() {
-   if (TRKDBG_FUNCIN) { console.log("=>" + this.name + "()"); }
+   if (TRKDBG_FUNCIN) { console.log("=>" + function.name + "()"); }
    var value_encoded = localStorage.getItem('trk_eml_enc');
    if (value_encoded) { var value_decoded = window.atob(value_encoded); }
    if (TRKDBG_GETEMAIL) {
