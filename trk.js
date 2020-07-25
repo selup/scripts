@@ -149,6 +149,64 @@ function trk_GetCookieValue(cname) {
 }
 
 
+function trk_GetUtmURL(ctx)
+{
+	ctx.utm = new object();
+	ctx.utm.source = trk_UrlGetParameter("utm_source");
+	ctx.utm.campaign = trk_UrlGetParameter("utm_campaign");
+	ctx.utm.term = trk_UrlGetParameter("utm_term");
+	ctx.utm.content = trk_UrlGetParameter("utm_content");
+	ctx.utm.medium = trk_UrlGetParameter("utm_medium");
+}
+
+function trk_GetBaseData(ctx)
+{	
+	ctx.CurrentUrl = new object();
+	ctx.CurrentUrl.path = window.location.pathname;
+	ctx.CurrentUrl.url = window.location;
+	ctx.CurrentUrl.referrer = window.location.origin;
+	ctx.CurrentUrl.param = window.location.search;
+	
+	trk_GetUtmURL(ctx);
+	ctx.date = trk_GetDateString();
+}
+
+/*
+analytics.track('webinar LP', {
+  webinaire: 'fisca'
+});
+*/
+
+// trk_SetEvent
+function trk_SetEvent(ctx,str_evt,property)
+{
+	// Fill base data
+	trk_GetBaseData(ctx);
+	
+	// Email & UserID
+	trk_GetEmail(ctx);
+	trk_GetUserID(ctx);
+	
+	// Event
+	switch (evt) {
+	  case 'landing':
+			trk.fisca_landing_url = ctx.CurrentUrl.url;  
+			trk.fisca_landing_date = ctx.date; 
+			trk_ac_update_contact(trk);
+		break;
+	  case 'optin':
+		break;
+	  case 'sale':
+		break;
+	  case 'order':
+		break;
+	  case 'purchased':
+		break;
+	  default:
+	}	
+	
+}
+
 
 
 /////////////
