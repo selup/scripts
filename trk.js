@@ -23,7 +23,15 @@ var TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT = true;
 //////////////////
 // Load scripts //
 //////////////////
-import "https://selup.github.io/scripts/fingerprint2.js";
+function dynamicallyLoadScript(url) {
+   var script = document.createElement("script");  // create a script DOM node
+   script.src = url;  // set its src to the provided URL
+
+   document.head.appendChild(script);  // add it to the end of the head section of the page (could change 'head' to 'body' to add it to the end of the body section instead)
+}
+
+
+
 
 
 ///////////////
