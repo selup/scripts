@@ -178,14 +178,15 @@ analytics.track('webinar LP', {
 */
 
 // trk_SetEvent
-function trk_SetEvent(ctx,str_evt,property)
+/*
+function trk_SetEvent(str_evt,property)
 {
 	// Fill base data
-	trk_GetBaseData(ctx);
+	trk_GetBaseData();
 	
 	// Email & UserID
-	trk_GetEmail(ctx);
-	trk_GetUserID(ctx);
+	trk_GetEmail();
+	trk_GetUserID();
 	
 	// Event
 	switch (evt) {
@@ -206,12 +207,27 @@ function trk_SetEvent(ctx,str_evt,property)
 	}	
 	
 }
+*/
 
-
+function trk_SetEvent()
+{
+	console.log("set event");
+}
 
 /////////////
 // Main () //
 /////////////
+var trk = 
+{
+	url: null,
+	email: null,
+	userID: null;
+	//GetEmail: function() { trk_GetEmail(); }
+	SetEvent: function() { trk_SetEvent(); }
+};
+
+				
+
 
 
 // Load sha256.js in special mode for GTM
