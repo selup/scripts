@@ -12,6 +12,15 @@
 var	TRKDBG_FUNCIN = true;	// Enter in all function
 var	TRKDBG_AC_UPDATE_CONTACT = false;	
 var	TRKDBG_GET_DATE_STRING = false;
+var	TRKDBG_GET_EMAIL_ON_EVENT = false;
+
+
+//////////////////
+// Load scripts //
+//////////////////
+
+
+
 
 
 ///////////////
@@ -84,5 +93,23 @@ function trk_GetDateString()
 	today = yyyy+'/'+mm+'/'+dd;	
 	if(TRKDBG_GET_DATE_STRING) {console.log("date is:"+today);}
 	return today;
+}
+
+
+//if email input exsit, create a event to read it 
+function trk_GetEmailOnEvent()
+{
+	if(TRKDBG_FUNCIN) {console.log("=>trk_GetEmailOnEvent()");}
+	
+	if(document.getElementsByName("email")[0])
+	{
+		document.getElementsByName("email")[0].oninput = function()
+		{
+			var trk_eml = document.getElementsByName("email")[0].value;
+			trk_eml  = window.btoa( trk_eml );
+			localStorage.setItem("trk_eml_enc", trk_eml); 
+			if(TRKDBG_GET_EMAIL_ON_EVENT) {console.log("email gets on event is:"+trk_eml);}
+		};
+	}
 }
 
