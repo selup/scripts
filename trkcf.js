@@ -15,6 +15,7 @@ debug_consol = true; //print on consol
 /** READ INPUT & WRITE COOKIE (event)  **/ 
 /****************************************/
 //if email input exsit, create a event to read it 
+/*
 if(document.getElementsByName("email")[0])
 {
 	document.getElementsByName("email")[0].oninput = function()
@@ -26,6 +27,6 @@ if(document.getElementsByName("email")[0])
 		if(debug_consol == true){ console.log("email encrypted 2 is",trk_eml);}
 	};
 }
-
+*/
 
  
