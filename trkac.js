@@ -106,14 +106,14 @@ function trk_WriteEmailOnLocalStorageOnEvent()
 		var tmp_email = document.getElementsByName("email")[0].value; //if email already present
 		tmp_email_encoded  = window.btoa( tmp_email );
 		localStorage.setItem("trk_eml_enc", tmp_email_encoded); 
-		if(TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT) {console.log("email gets on event is:"+tmp_email);}
+		if(TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT) {console.log("email write in local storage is:"+tmp_email);}
 		
 		document.getElementsByName("email")[0].oninput = function()
 		{
 			var tmp_email = document.getElementsByName("email")[0].value;
 			tmp_email_encoded  = window.btoa( tmp_email );
 			localStorage.setItem("trk_eml_enc", tmp_email_encoded); 
-			if(TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT) {console.log("email gets on event is:"+tmp_email);}
+			if(TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT) {console.log("email write in local storage is:"+tmp_email);}
 		};
 	}
 }
