@@ -1,7 +1,7 @@
 //
 //
 //
-//	file can be fund here:  https://selup.github.io/scripts/trkac.js
+//	file can be fund here:  https://selup.github.io/scripts/trk.js
 //	author: bpt
 //
 
@@ -12,7 +12,7 @@
 var	TRKDBG_FUNCIN = true;	// Enter in all function
 var	TRKDBG_AC_UPDATE_CONTACT = false;	
 var	TRKDBG_GET_DATE_STRING = false;
-var	TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT = true;
+var	TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT = true; 
 
 
 //////////////////
