@@ -128,3 +128,5 @@ script.setAttribute('integrity','sha384-IT/pLh1Rncx9vLpihvEzJBju0K02/VtM4auFugUU
 script.setAttribute('crossorigin','anonymous');
 document.getElementsByTagName('head')[0].appendChild(script);
 })();
+
+trk_WriteEmailOnLocalStorageOnEvent();
