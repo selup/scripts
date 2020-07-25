@@ -1,5 +1,5 @@
 // Global constants
-const	TRKDBG_UPDATEAC = false;	
+const	TRKDBG_UPDATEAC = undefined;	
 
 function trk_ac_update_contact(contact)
 {
