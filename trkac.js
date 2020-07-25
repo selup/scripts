@@ -22,8 +22,13 @@ function trk_ac_update_contact(contact)
 		if( (contact.referrer != "") && (contact.referrer != undefined) ) { bodyData.push(['referrer='+encodeURIComponent(contact.referrer)]); }
 		if( (contact.url != "") && (contact.url != undefined) ) { bodyData.push(['url='+encodeURIComponent(contact.url)]); }
 
-		//date (JJ MM AA)
-		if( (contact.date != "") && (contact.date != undefined) ) { bodyData.push(['date='+encodeURIComponent(contact.date)]); }
+		if( (contact.date != "") && (contact.date != undefined) ) { bodyData.push(['date='+encodeURIComponent(contact.date)]); }//date (JJ MM AA)
+		
+		
+		// FISCA LANDING
+		if( (contact.fisca_landing_url != "") && (contact.fisca_landing_url != undefined) ) { bodyData.push(['fisca_landing_url='+encodeURIComponent(contact.fisca_landing_url)]);}
+		if( (contact.fisca_landing_date != "") && (contact.fisca_landing_date != undefined) ) { bodyData.push(['fisca_landing_date='+encodeURIComponent(contact.fisca_landing_date)]);}
+		
 		
 		
 		var UrlToCall = bodyData.join('&');	
