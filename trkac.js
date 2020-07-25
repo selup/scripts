@@ -1,7 +1,22 @@
-// Global constants
-var	TRKDBG_UPDATEAC = false;	
-var	TRKDBG_FUNCIN = true;	// Enter in all function
+//
+//
+//
+//	file can be fund here:  https://selup.github.io/scripts/trkac.js
+//	author: bpt
+//
 
+//////////////////////
+// Global constants //
+//////////////////////
+// Debug settings
+var	TRKDBG_FUNCIN = true;	// Enter in all function
+var	TRKDBG_AC_UPDATE_CONTACT = false;	
+var	TRKDBG_GET_DATE_STRING = false;
+
+
+///////////////
+// Functions //
+///////////////
 function trk_ac_update_contact(contact)
 {
 	if(TRKDBG_FUNCIN) {console.log("=>trk_ac_update_contact()");}
@@ -38,7 +53,7 @@ function trk_ac_update_contact(contact)
 		
 		
 		var UrlToCall = bodyData.join('&');	
-		if(TRKDBG_UPDATEAC) {console.log("url is:"+UrlToCall);}
+		if(TRKDBG_AC_UPDATE_CONTACT) {console.log("url is:"+UrlToCall);}
 		
 		var Http = new XMLHttpRequest();
 		Http.open("GET", UrlToCall);
@@ -46,4 +61,28 @@ function trk_ac_update_contact(contact)
 	}
 }
 
+
+function trk_GetDateString()
+{
+	if(TRKDBG_FUNCIN) {console.log("=>trk_GetDateString()");}
+	
+	var today = new Date();
+	var dd = today.getDate();
+
+	var mm = today.getMonth()+1; 
+	var yyyy = today.getFullYear();
+	if(dd<10) 
+	{
+		dd='0'+dd;
+	} 
+
+	if(mm<10) 
+	{
+		mm='0'+mm;
+	} 
+	
+	today = yyyy+'/'+mm+'/'+dd;	
+	if(TRKDBG_GET_DATE_STRING) {console.log("date is:"+today);}
+	return today;
+}
 
