@@ -245,8 +245,8 @@ function trk_GetUserID() {
 
 function trk_SetEvent() {
    if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
-   GetEmail();
-   GetUserID();
+   this.GetEmail();
+   this.GetUserID();
 }
 
 /////////////
