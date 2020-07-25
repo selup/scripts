@@ -4,7 +4,7 @@ const	TRKDBG_FUNCIN = true;	// Enter in all function
 
 function trk_ac_update_contact(contact)
 {
-	if(TRKDBG_FUNCIN) {console.log("=>"+function.name);}
+	if(TRKDBG_FUNCIN) {console.log("=>trk_ac_update_contact()");}
 	
 	if( (contact.email != "") && (contact.email != undefined) )
 	{
