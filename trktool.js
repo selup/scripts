@@ -36,7 +36,6 @@ function trk_GetDateString()
 		mm='0'+mm;
 	} 
 	
-	today = yyyy+'/'+mm+'/'+dd;
-	console.log(today);		
+	today = yyyy+'/'+mm+'/'+dd;	
 	return today;
 }
