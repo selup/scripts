@@ -75,6 +75,8 @@ function trk_GetDateString()
 {
 	if(TRKDBG_FUNCIN) {console.log("=>trk_GetDateString()");}
 	
+	console.log("test read utm"+{{trk_utm_source}});
+	
 	var today = new Date();
 	var dd = today.getDate();
 
@@ -97,7 +99,7 @@ function trk_GetDateString()
 
 
 //if email input exsit, create a event to read it 
-function trk_WriteEmailOnLocalStorageOnEvent()
+function trk_WriteEmailOnLocalStorageOnEvent()   // create ...
 {
 	if(TRKDBG_FUNCIN) {console.log("=>trk_WriteEmailOnLocalStorageOnEvent()");}
 	
@@ -116,7 +118,14 @@ function trk_WriteEmailOnLocalStorageOnEvent()
 			if(TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT) {console.log("email write in local storage is:"+tmp_email);}
 		};
 	}
+	// else read local storage ?
 }
+
+
+/////////////
+// Main () //
+/////////////
+
 
 // Load sha256.js in special mode for GTM
 (function() {
@@ -129,4 +138,20 @@ script.setAttribute('crossorigin','anonymous');
 document.getElementsByTagName('head')[0].appendChild(script);
 })();
 
+// load event for catching email
 trk_WriteEmailOnLocalStorageOnEvent();
+
+
+
+// Get Data ..
+
+// Create objet trk
+
+// Subdivise files
+
+
+// track LP without email.. (store on cookies) // mecanism cookie/localstorage
+
+
+
+
