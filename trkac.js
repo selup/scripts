@@ -1,13 +1,14 @@
 // Global constants
 const	TRKDBG_UPDATEAC = undefined;	
+const	TRKDBG_FUNCIN = true;	// Enter in all function
 
 function trk_ac_update_contact(contact)
 {
+	if(TRKDBG_FUNCIN) {console.log("=>"+function.name);}
 	
 	if( (contact.email != "") && (contact.email != undefined) )
 	{
 		var urlWebApp = "https://script.google.com/macros/s/AKfycbwDKQdFDCCCKNy47Zw8q7pz2edltXtYBHStj9e7GuwNZb-7jUq2/exec";
-		
 		
 		var bodyData = [];
 		bodyData.push (urlWebApp+"?email="+encodeURIComponent(contact.email)) ;
