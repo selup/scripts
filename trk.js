@@ -271,24 +271,25 @@ var trk =
 trk_WriteEmailOnLocalStorageOnEvent();
 
 
-var fingerprint; // Variable to allow the Google Tag Manager to capture the data after this script has run.
+
 if (window.requestIdleCallback) {
   requestIdleCallback(function () {
     Fingerprint2.get(function (components) {
       console.log(components) // an array of components: {key: ..., value: ...}
-      console.log(Fingerprint2);
+      var values = components.map(function (component) { return component.value })
+      var murmur = Fingerprint2.x64hash128(values.join(''), 31)
     })
   })
 } else {
   setTimeout(function () {
     Fingerprint2.get(function (components) {
       console.log(components) // an array of components: {key: ..., value: ...}
-      console.log(Fingerprint2);
+      var values = components.map(function (component) { return component.value })
+      var murmur = Fingerprint2.x64hash128(values.join(''), 31)
     })  
   }, 500)
 }
 
-console.log(fingerprint);
 
 
 // Get Data ..
