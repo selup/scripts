@@ -12,7 +12,7 @@
 var	TRKDBG_FUNCIN = true;	// Enter in all function
 var	TRKDBG_AC_UPDATE_CONTACT = false;	
 var	TRKDBG_GET_DATE_STRING = false;
-var	TRKDBG_GET_EMAIL_ON_EVENT = false;
+var	TRKDBG_GET_EMAIL_ON_EVENT = true;
 
 
 //////////////////
