@@ -12,7 +12,7 @@ var TRKDBG_GET_DATE_STRING = false;
 var TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT = true;
 
 
-
+/*
 function dynamicallyLoadScript(url) 
 {
    if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
@@ -21,7 +21,7 @@ function dynamicallyLoadScript(url)
 
    document.head.appendChild(script);  // add it to the end of the head section of the page (could change 'head' to 'body' to add it to the end of the body section instead)
 }
-
+*/
 
 
 
