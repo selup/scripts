@@ -129,6 +129,52 @@ function trk_SetEvent(ctx,EventName)
 
 
 
+
+function trk_AddPreviousUrlParam() {
+
+
+
+   var initial_url = window.location.href;
+   var url = new URL(initial_url);
+
+   // filter utm_expid
+   var utm_to_filter = url;
+   //var utm_to_filter = new URL(new_url);
+   var params_filter = new URLSearchParams(utm_to_filter.search.slice(1));
+   params_filter.delete("utm_expid");
+   console.log("params_filter is",params_filter.toString());
+
+
+   var url_tmp = url;
+   //var url_tmp = new URL(new_url);
+   url_tmp.search = params_filter.toString();
+   var url_filtered = url_tmp.toString();
+   console.log("url filtered is",url_filtered);
+
+   var queryString = new URL(url_filtered).search;
+   console.log("queryString is",queryString);
+
+
+   //var queryString = new URL(new_url).search;
+   //console.log("queryString is",queryString);
+   document.querySelectorAll("[href]").forEach(link => {
+      var current = link.href;
+      //console.log("link",current);
+      // filter to higher speed (low flikr)
+      if( (current.includes("webinaire.org") == true) && (current.includes(".css") == false) && (current.includes("#submit-form") == false) )
+      {
+         link.href = current + queryString;
+         //console.log("link replace",link.href);
+      }
+
+   });
+
+}
+
+
+
+
+
 function trk_ac_update_contact(contact) {
    if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
 
