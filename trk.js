@@ -190,13 +190,14 @@ function trk_GetCookieValue(cname) {
 
 function trk_GetPageInfo(ctx) {
    if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
+   ctx.path = window.location.pathname;
    ctx.utm_source = trk_UrlGetParameter("utm_source");
    ctx.utm_campaign = trk_UrlGetParameter("utm_campaign");
    ctx.utm_term = trk_UrlGetParameter("utm_term");
    ctx.utm_content = trk_UrlGetParameter("utm_content");
    ctx.utm_medium = trk_UrlGetParameter("utm_medium");
 
-   ctx.path = window.location.pathname;
+   
    ctx.url = window.location;
    ctx.referrer = window.location.origin;
    ctx.param = window.location.search;
@@ -279,7 +280,7 @@ var trk =
    email: null,
    userId: null,
    visitorId: null,
-   var page= new Object(),
+   page: new Object(),
 };
 
 
