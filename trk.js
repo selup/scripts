@@ -23,12 +23,7 @@ var TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT = true;
 //////////////////
 // Load scripts //
 //////////////////
-function dynamicallyLoadScript(url) {
-   var script = document.createElement("script");  // create a script DOM node
-   script.src = url;  // set its src to the provided URL
 
-   document.head.appendChild(script);  // add it to the end of the head section of the page (could change 'head' to 'body' to add it to the end of the body section instead)
-}
 
 
 
@@ -37,8 +32,18 @@ function dynamicallyLoadScript(url) {
 ///////////////
 // Functions //
 ///////////////
+function dynamicallyLoadScript(url) 
+{
+   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
+   var script = document.createElement("script");  // create a script DOM node
+   script.src = url;  // set its src to the provided URL
 
-function sleep(milliseconds) {
+   document.head.appendChild(script);  // add it to the end of the head section of the page (could change 'head' to 'body' to add it to the end of the body section instead)
+}
+
+
+function sleep(milliseconds) 
+{
    if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
    const date = Date.now();
    let currentDate = null;
@@ -120,7 +125,7 @@ function trk_GetVisitorID()
 
 
 function trk_ac_update_contact(contact) {
-   if (TRKDBG_FUNCIN) { console.log("=>trk_ac_update_contact()"); }
+   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
 
    if ((contact.email != "") && (contact.email != undefined)) {
       var urlWebApp = "https://script.google.com/macros/s/AKfycbwDKQdFDCCCKNy47Zw8q7pz2edltXtYBHStj9e7GuwNZb-7jUq2/exec";
@@ -162,32 +167,11 @@ function trk_ac_update_contact(contact) {
 }
 
 
-function trk_GetDateString() {
-   if (TRKDBG_FUNCIN) { console.log("=>trk_GetDateString()"); }
-
-   var today = new Date();
-   var dd = today.getDate();
-
-   var mm = today.getMonth() + 1;
-   var yyyy = today.getFullYear();
-   if (dd < 10) {
-      dd = '0' + dd;
-   }
-
-   if (mm < 10) {
-      mm = '0' + mm;
-   }
-
-   today = yyyy + '/' + mm + '/' + dd;
-   if (TRKDBG_GET_DATE_STRING) { console.log("date is:" + today); }
-   return today;
-}
-
 
 //if email input exsit, create a event to read it 
 function trk_WriteEmailOnLocalStorageOnEvent()   // create ...
 {
-   if (TRKDBG_FUNCIN) { console.log("=>trk_WriteEmailOnLocalStorageOnEvent()"); }
+   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
 
    if (document.getElementsByName("email")[0]) {
       var tmp_email = document.getElementsByName("email")[0].value; //if email already present
@@ -325,6 +309,9 @@ function trk_MakeUserID(email) {
 /////////////
 // Main () //
 /////////////
+
+dynamicallyLoadScript("https://selup.github.io/scripts/trk-fct.js"); 
+
 var trk =
 {
    url: null,
