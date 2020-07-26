@@ -14,6 +14,7 @@ var TRKDBG_VERBOSE = true;
 /////////////
 //trk_LoadSHA256script();
 
+/*
    // Load sha256.js in special mode for GTM
    (function () {
       if (TRKDBG_FUNCIN) { console.log("=>load sha256.js()"); }
@@ -24,7 +25,7 @@ var TRKDBG_VERBOSE = true;
       script.setAttribute('crossorigin', 'anonymous');
       document.getElementsByTagName('head')[0].appendChild(script);
    })();
-   
+*/
 
 trk_SetFingerPrintAsync();
 
