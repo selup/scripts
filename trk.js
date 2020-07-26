@@ -111,6 +111,7 @@ function trk_GetVisitorID()
       loop = loop +1;
       setTimeout(function(y){return}, 100); //ms       
    }
+   if (TRKDBG_VERBOSE) { console.log("VisitorID is"+murmur); }
    return murmur;
 }
 
