@@ -278,6 +278,7 @@ if (window.requestIdleCallback) {
       console.log(components) // an array of components: {key: ..., value: ...}
       var values = components.map(function (component) { return component.value })
       var murmur = Fingerprint2.x64hash128(values.join(''), 31)
+      console.log(murmur);
     })
   })
 } else {
@@ -286,11 +287,12 @@ if (window.requestIdleCallback) {
       console.log(components) // an array of components: {key: ..., value: ...}
       var values = components.map(function (component) { return component.value })
       var murmur = Fingerprint2.x64hash128(values.join(''), 31)
+      console.log(murmur);
     })  
   }, 500)
 }
 
-console.log(murmur);
+
 
 // Get Data ..
 
