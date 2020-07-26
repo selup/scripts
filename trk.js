@@ -67,7 +67,7 @@ var trk =
    evt: new Object(),
 };
 
-trk_SetFingerPrintAsync();
+
 
 // Load sha256.js in special mode for GTM
 (function () {
@@ -80,6 +80,7 @@ trk_SetFingerPrintAsync();
    document.getElementsByTagName('head')[0].appendChild(script);
 })();
 
+trk_SetFingerPrintAsync();
 
 // load event for catching email
 trk_WriteEmailOnLocalStorageOnEvent();
