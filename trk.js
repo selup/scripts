@@ -156,6 +156,7 @@ function trk_WriteEmailOnLocalStorageOnEvent()   // create ...
 
 
 function trk_UrlGetParameter(parameterName) {
+   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
    var result = null,
       tmp = [];
    var items = location.search.substr(1).split("&");
@@ -168,6 +169,7 @@ function trk_UrlGetParameter(parameterName) {
 
 
 function trk_GetCookieValue(cname) {
+   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
    var name = cname + "=";
    var decodedCookie = decodeURIComponent(document.cookie);
    var ca = decodedCookie.split(';');
@@ -187,6 +189,7 @@ function trk_GetCookieValue(cname) {
 
 
 function trk_GetPageInfo(ctx) {
+   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
    ctx.utm_source = trk_UrlGetParameter("utm_source");
    ctx.utm_campaign = trk_UrlGetParameter("utm_campaign");
    ctx.utm_term = trk_UrlGetParameter("utm_term");
