@@ -122,11 +122,26 @@ function trk_SetEvent(ctx,EventName,ProductName)
             ctx.evt.fisca_optin_date = ctx.page.date;         
          }
        break;
-      case 'sale':
+      case 'attended':
+         if(ProductName == "fisca")
+         {
+            ctx.evt.fisca_attended_url = ctx.page.url; 
+            ctx.evt.fisca_attended_date = ctx.page.date;         
+         }         
        break;
-      case 'order':
+      case 'sell':
+         if(ProductName == "fisca")
+         {
+            ctx.evt.fisca_sell_url = ctx.page.url; 
+            ctx.evt.fisca_sell_date = ctx.page.date;         
+         }                  
        break;
       case 'purchased':
+         if(ProductName == "fisca")
+         {
+            ctx.evt.fisca_purchased_url = ctx.page.url; 
+            ctx.evt.fisca_purchased_date = ctx.page.date;         
+         }                  
        break;
       default:
     }
@@ -203,6 +218,12 @@ function trk_ac_update_contact(contact) {
       if (contact.evt.fisca_landing_date) { bodyData.push(['fisca_landing_date=' + encodeURIComponent(contact.evt.fisca_landing_date)]); }
       if (contact.evt.fisca_optin_url) { bodyData.push(['fisca_optin_url=' + encodeURIComponent(contact.evt.fisca_optin_url)]); }
       if (contact.evt.fisca_optin_date) { bodyData.push(['fisca_optin_date=' + encodeURIComponent(contact.evt.fisca_optin_date)]); }
+      if (contact.evt.fisca_attended_url) { bodyData.push(['fisca_attended_url=' + encodeURIComponent(contact.evt.fisca_attended_url)]); }
+      if (contact.evt.fisca_attended_date) { bodyData.push(['fisca_attended_date=' + encodeURIComponent(contact.evt.fisca_attended_date)]); }
+      if (contact.evt.fisca_sell_url) { bodyData.push(['fisca_sell_url=' + encodeURIComponent(contact.evt.fisca_sell_url)]); }
+      if (contact.evt.fisca_sell_date) { bodyData.push(['fisca_sell_date=' + encodeURIComponent(contact.evt.fisca_sell_date)]); }   
+      if (contact.evt.fisca_purchased_url) { bodyData.push(['fisca_purchased_url=' + encodeURIComponent(contact.evt.fisca_purchased_url)]); }
+      if (contact.evt.fisca_purchased_date) { bodyData.push(['fisca_purchased_date=' + encodeURIComponent(contact.evt.fisca_purchased_date)]); }      
 
 
       var UrlToCall = bodyData.join('&');
