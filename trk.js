@@ -37,6 +37,37 @@ function dynamicallyLoadScript(url) {
 ///////////////
 // Functions //
 ///////////////
+
+// Create VisitorID based on fingerprintjs2
+function trk_GetVisitorID()
+{
+   console.log("enter in function");
+   new Fingerprint2.get(function(result, components) {
+      var info = {
+         fingerprint: result
+      };
+
+      processFingerprint(info);
+   });
+
+   function processFingerprint(data) {
+      //console.log(data.fingerprint);
+      var values = data.fingerprint.map(function (x) {return x.value});
+      var murmur = Fingerprint2.x64hash128(values.join(''), 31);   
+      console.log(murmur);
+   }
+   console.log("exit function");
+
+   // transform to blocking function
+   // can be improve with async 
+   while(!murmur)
+   {
+      setTimeout(suiteTraitement, 100); // 100ms    
+   }
+   return murmur;
+}
+
+
 function trk_ac_update_contact(contact) {
    if (TRKDBG_FUNCIN) { console.log("=>trk_ac_update_contact()"); }
 
@@ -276,54 +307,7 @@ var trk =
 trk_WriteEmailOnLocalStorageOnEvent();
 
 
-/*
-if (window.requestIdleCallback) {
-  requestIdleCallback(function () {
-    Fingerprint2.get(function (components) {
-      console.log(components) // an array of components: {key: ..., value: ...}
-      var values = components.map(function (component) { return component.value })
-      var murmur = Fingerprint2.x64hash128(values.join(''), 31)
-      console.log(murmur);
-    })
-  })
-} else {
-  setTimeout(function () {
-    Fingerprint2.get(function (components) {
-      console.log(components) // an array of components: {key: ..., value: ...}
-      var values = components.map(function (component) { return component.value })
-      var murmur = Fingerprint2.x64hash128(values.join(''), 31)
-      console.log(murmur);
-    })  
-  }, 500)
-}
-*/
-function trk_GetVisitorID()
-{
-   console.log("enter in function");
-   new Fingerprint2.get(function(result, components) {
-      var info = {
-         fingerprint: result
-      };
 
-      processFingerprint(info);
-   });
-
-   function processFingerprint(data) {
-      //console.log(data.fingerprint);
-      var values = data.fingerprint.map(function (x) {return x.value});
-      var murmur = Fingerprint2.x64hash128(values.join(''), 31);   
-      console.log(murmur);
-   }
-   console.log("exit function");
-
-   // transform to blocking function
-   // can be improve with async 
-   while(!murmur)
-   {
-      setTimeout(suiteTraitement, 100); // 100ms    
-   }
-   return murmur;
-}
 
 
 // Get Data ..
