@@ -35,7 +35,7 @@ function trk_SetFingerPrintAsync()
       //console.log(data.fingerprint);
       var values = data.fingerprint.map(function (x) {return x.value});
       murmur = Fingerprint2.x64hash128(values.join(''), 31);   
-      if (TRKDBG_VERBOSE) { console.log(murmur); }
+      //if (TRKDBG_VERBOSE) { console.log(murmur); }
    }
 }
 // Create VisitorID based on fingerprintjs2
