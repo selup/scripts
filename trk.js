@@ -315,6 +315,13 @@ function trk_GetVisitorID()
       console.log(murmur);
    }
    console.log("exit function");
+
+   // transform to blocking function
+   while(!murmur)
+   {
+      setTimeout(suiteTraitement, 100); // 100ms    
+   }
+   return murmur;
 }
 
 
