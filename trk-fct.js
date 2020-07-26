@@ -161,7 +161,7 @@ function trk_AddPreviousUrlParam() {
       var current = link.href;
       //console.log("link",current);
       // filter to higher speed (low flikr)
-      if( (current.includes("webinaire.org") == true) && (current.includes(".css") == false) && (current.includes("#submit-form") == false) )
+      if( ( (current.includes("webinaire.org") == true) || (current.includes("formation-pro.learnybox.com") == true) ) && (current.includes(".css") == false) && (current.includes("#submit-form") == false) )
       {
          link.href = current + queryString;
          //console.log("link replace",link.href);
