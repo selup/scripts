@@ -71,8 +71,7 @@ function trk_GetVisitorID()
    // can be improve with async 
    while(!murmur)
    {
-      //setTimeout(suiteTraitement, 10); // 10ms    
-      sleep(30); //ms    
+      setTimeout(function(){}, 30); //ms       
    }
    return murmur;
 }
