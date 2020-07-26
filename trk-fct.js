@@ -220,7 +220,7 @@ function trk_ReadTrkData(trk) {
    if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
 
    trk.evt.fisca_landing_url = localStorage.getItem("fisca_landing_url");
-   trk.evt.fisca_landing_date localStorage.getItem("fisca_landing_date");   
+   trk.evt.fisca_landing_date = localStorage.getItem("fisca_landing_date");   
 }
 
 
