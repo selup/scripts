@@ -302,7 +302,7 @@ new Fingerprint2().get(function(result, components) {
 });
 
 function processFingerprint(data) {
-   alert(data.fingerprint);
+   console.log(data.fingerprint);
 }
 
 
