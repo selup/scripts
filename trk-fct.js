@@ -97,13 +97,11 @@ function trk_ac_update_contact(contact) {
       if (contact.page.date) { bodyData.push(['date=' + encodeURIComponent(contact.page.date)]); }//date (JJ MM AA)
 
 
-      // FISCA LANDING
-      /*
-      if ((contact.fisca_landing_url != "") && (contact.fisca_landing_url != undefined)) { bodyData.push(['fisca_landing_url=' + encodeURIComponent(contact.fisca_landing_url)]); }
-      if ((contact.fisca_landing_date != "") && (contact.fisca_landing_date != undefined)) { bodyData.push(['fisca_landing_date=' + encodeURIComponent(contact.fisca_landing_date)]); }
-      if ((contact.fisca_optin_url != "") && (contact.fisca_optin_url != undefined)) { bodyData.push(['fisca_optin_url=' + encodeURIComponent(contact.fisca_optin_url)]); }
-      if ((contact.fisca_optin_date != "") && (contact.fisca_optin_date != undefined)) { bodyData.push(['fisca_optin_date=' + encodeURIComponent(contact.fisca_optin_date)]); }
-      */
+      // FISCA
+      if (contact.evt.fisca_landing_url) { bodyData.push(['fisca_landing_url=' + encodeURIComponent(contact.evt.fisca_landing_url)]); }
+      if (contact.evt.fisca_landing_date) { bodyData.push(['fisca_landing_date=' + encodeURIComponent(contact.evt.fisca_landing_date)]); }
+      if (contact.evt.fisca_optin_url) { bodyData.push(['fisca_optin_url=' + encodeURIComponent(contact.evt.fisca_optin_url)]); }
+      if (contact.evt.fisca_optin_date) { bodyData.push(['fisca_optin_date=' + encodeURIComponent(contact.evt.fisca_optin_date)]); }
 
 
       var UrlToCall = bodyData.join('&');
