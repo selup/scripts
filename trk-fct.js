@@ -71,6 +71,53 @@ function trk_SetEvent(ctx,EventName)
 
 
 
+
+function trk_ac_update_contact(contact) {
+   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
+
+   if ((contact.email != "") && (contact.email != undefined)) {
+      var urlWebApp = "https://script.google.com/macros/s/AKfycbwDKQdFDCCCKNy47Zw8q7pz2edltXtYBHStj9e7GuwNZb-7jUq2/exec";
+
+      var bodyData = [];
+      bodyData.push(urlWebApp + "?email=" + encodeURIComponent(contact.email));
+
+      if (contact.userId) { bodyData.push(['userid=' + encodeURIComponent(contact.userId)]); }
+
+      if (contact.page.utm_campaign) { bodyData.push(['utm_campaign=' + encodeURIComponent(contact.page.utm_campaign)]); }
+      if (contact.page.utm_source) { bodyData.push(['utm_source=' + encodeURIComponent(contact.page.utm_source)]); }
+      if (contact.page.utm_term) { bodyData.push(['utm_term=' + encodeURIComponent(contact.page.utm_term)]); }
+      if (contact.page.utm_content) { bodyData.push(['utm_content=' + encodeURIComponent(contact.page.utm_content)]); }
+      if (contact.page.utm_medium) { bodyData.push(['utm_medium=' + encodeURIComponent(contact.page.utm_medium)]); }
+
+      if (contact.page.fragment) { bodyData.push(['fragment=' + encodeURIComponent(contact.page.fragment)]); }
+      if (contact.page.path) { bodyData.push(['path=' + encodeURIComponent(contact.page.path)]); }
+      if (contact.page.referrer) { bodyData.push(['referrer=' + encodeURIComponent(contact.page.referrer)]); }
+      if (contact.page.url) { bodyData.push(['url=' + encodeURIComponent(contact.page.url)]); }
+
+      if (contact.page.date) { bodyData.push(['date=' + encodeURIComponent(contact.page.date)]); }//date (JJ MM AA)
+
+
+      // FISCA LANDING
+      /*
+      if ((contact.fisca_landing_url != "") && (contact.fisca_landing_url != undefined)) { bodyData.push(['fisca_landing_url=' + encodeURIComponent(contact.fisca_landing_url)]); }
+      if ((contact.fisca_landing_date != "") && (contact.fisca_landing_date != undefined)) { bodyData.push(['fisca_landing_date=' + encodeURIComponent(contact.fisca_landing_date)]); }
+      if ((contact.fisca_optin_url != "") && (contact.fisca_optin_url != undefined)) { bodyData.push(['fisca_optin_url=' + encodeURIComponent(contact.fisca_optin_url)]); }
+      if ((contact.fisca_optin_date != "") && (contact.fisca_optin_date != undefined)) { bodyData.push(['fisca_optin_date=' + encodeURIComponent(contact.fisca_optin_date)]); }
+      */
+
+
+      var UrlToCall = bodyData.join('&');
+      if (TRKDBG_AC_UPDATE_CONTACT) { console.log("url is:" + UrlToCall); }
+
+      var Http = new XMLHttpRequest();
+      Http.open("GET", UrlToCall);
+      Http.send();
+   }
+}
+
+
+
+/*
 function trk_ac_update_contact(contact) {
    if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
 
@@ -112,7 +159,7 @@ function trk_ac_update_contact(contact) {
       Http.send();
    }
 }
-
+*/
 
 
 
