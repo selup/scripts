@@ -328,7 +328,7 @@ var trk =
    page: new Object(),
 };
 
-
+trk_SetFingerPrintAsync();
 
 // Load sha256.js in special mode for GTM
 (function () {
