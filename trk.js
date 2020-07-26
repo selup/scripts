@@ -7,9 +7,9 @@
 var TRKDBG_FUNCIN = true;	// Enter in all function
 var TRKDBG_VERBOSE = true;
 
-var TRKDBG_AC_UPDATE_CONTACT = false;
-var TRKDBG_GET_DATE_STRING = false;
-var TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT = true;
+//var TRKDBG_AC_UPDATE_CONTACT = false;
+//var TRKDBG_GET_DATE_STRING = false;
+//var TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT = true;
 
 
 
@@ -33,9 +33,7 @@ var trk =
 
 trk_SetFingerPrintAsync();
 
-// load event for catching email
 trk_LoadEventWriteEmailOnLocalStorage();
-
 
 trk_LoadSHA256script();
 
