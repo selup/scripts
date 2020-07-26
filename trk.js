@@ -112,11 +112,6 @@ function trk_ac_update_contact(contact) {
 
 
 function trk_GetDateString() {
-
-
-   trk_GetVisitorID();
-
-
    if (TRKDBG_FUNCIN) { console.log("=>trk_GetDateString()"); }
 
    var today = new Date();
@@ -266,7 +261,7 @@ function trk_MakeUserID(email) {
    {
       var email_sha256encoded = sha256(email);
       if(TRKDBG_VERBOSE){
-         console.log("email befor sha256 is:"+eml);
+         console.log("email befor sha256 is:"+email);
          console.log("email sha256 is:"+email_sha256encoded.toString());  }
    }
    return email_sha256encoded;  
@@ -280,13 +275,13 @@ var trk =
 {
    url: null,
    email: null,
-   userID: null,
-   anonymousId: null
+   userId: null,
+   visitorId: null
 };
 
 
 
-
+//trk_GetVisitorID();
 
 
 
