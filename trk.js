@@ -7,34 +7,12 @@
 var TRKDBG_FUNCIN = true;	// Enter in all function
 var TRKDBG_VERBOSE = true;
 
-//var TRKDBG_AC_UPDATE_CONTACT = false;
-//var TRKDBG_GET_DATE_STRING = false;
-//var TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT = true;
-
-
-
-
 
 
 /////////////
 // Main () //
 /////////////
 
-// create trk a partir d'un prototype
-
-function trk_CreateTRK()
-{
-   var trk =
-   {
-      email: null,
-      userId: null,
-      visitorId: null,
-      page: new Object(),
-      evt: new Object(),
-   };
-
-   return trk;
-}
 
 trk_SetFingerPrintAsync();
 
