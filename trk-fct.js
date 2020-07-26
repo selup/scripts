@@ -245,6 +245,7 @@ function trk_MakeUserID(email) {
 
    if(email)
    {
+      if(!sha256){console.log("non definie")};
       var loop = 0;
       while((!sha256) && (loop<30) )
       {
