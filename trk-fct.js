@@ -80,7 +80,7 @@ function trk_GetDateString() {
    }
 
    today = yyyy + '/' + mm + '/' + dd;
-   if (TRKDBG_GET_DATE_STRING) { console.log("date is:" + today); }
+   if (TRKDBG_VERBOSE) { console.log("date is:" + today); }
    return today;
 }
 
@@ -148,7 +148,7 @@ function trk_ac_update_contact(contact) {
 
 
       var UrlToCall = bodyData.join('&');
-      if (TRKDBG_AC_UPDATE_CONTACT) { console.log("url is:" + UrlToCall); }
+      if (TRKDBG_VERBOSE) { console.log("url is:" + UrlToCall); }
 
       var Http = new XMLHttpRequest();
       Http.open("GET", UrlToCall);
@@ -285,13 +285,13 @@ function trk_LoadEventWriteEmailOnLocalStorage()   // create ...
       var tmp_email = document.getElementsByName("email")[0].value; //if email already present
       tmp_email_encoded = window.btoa(tmp_email);
       localStorage.setItem("trk_eml_enc", tmp_email_encoded);
-      if (TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT) { console.log("email write in local storage is:" + tmp_email); }
+      if (TRKDBG_VERBOSE) { console.log("email write in local storage is:" + tmp_email); }
 
       document.getElementsByName("email")[0].oninput = function () {
          var tmp_email = document.getElementsByName("email")[0].value;
          tmp_email_encoded = window.btoa(tmp_email);
          localStorage.setItem("trk_eml_enc", tmp_email_encoded);
-         if (TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT) { console.log("email write in local storage is:" + tmp_email); }
+         if (TRKDBG_VERBOSE) { console.log("email write in local storage is:" + tmp_email); }
       };
    }
    // else read local storage ?
