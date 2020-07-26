@@ -293,7 +293,7 @@ if (window.requestIdleCallback) {
 }
 */
 
-new Fingerprint2().get(function(result, components) {
+new Fingerprint2.get(function(result, components) {
    var info = {
        fingerprint: result
    };
