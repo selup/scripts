@@ -245,6 +245,14 @@ function trk_MakeUserID(email) {
 
    if(email)
    {
+      var loop = 0;
+      while((!sha256) && (loop<5) )
+      {
+         loop = loop +1;
+         setTimeout(function(z){return}, 100); //ms       
+      }
+
+
       var email_sha256encoded = sha256(email);
       if(TRKDBG_VERBOSE){
          console.log("email befor sha256 is:"+email);
