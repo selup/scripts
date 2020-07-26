@@ -104,7 +104,7 @@ var trk =
    userId: null,
    visitorId: null,
    page: new Object(),
-   event: new Object()
+   evt: new Object(),
 };
 
 trk_SetFingerPrintAsync();
