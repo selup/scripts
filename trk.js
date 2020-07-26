@@ -105,8 +105,10 @@ function trk_GetVisitorID()
    if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
    // transform to blocking function
    // can be improve with async 
-   while(!murmur)
+   var loop = 0;
+   while((!murmur) && (loop<5) )
    {
+      loop = loop +1;
       setTimeout(function(y){return}, 100); //ms       
    }
    return murmur;
