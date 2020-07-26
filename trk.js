@@ -39,6 +39,7 @@ function dynamicallyLoadScript(url) {
 ///////////////
 
 function sleep(milliseconds) {
+   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
    const date = Date.now();
    let currentDate = null;
    do {
@@ -47,6 +48,7 @@ function sleep(milliseconds) {
  }
 
 // Create VisitorID based on fingerprintjs2
+/*
 function trk_GetVisitorID()
 {
    var murmur;
@@ -75,7 +77,7 @@ function trk_GetVisitorID()
    }
    return murmur;
 }
-
+*/
 
 var murmur; // Global variable
 
@@ -111,7 +113,8 @@ function trk_GetVisitorID()
       loop = loop +1;
       setTimeout(function(y){return}, 100); //ms       
    }
-   if (TRKDBG_VERBOSE) { console.log("VisitorID is"+murmur); }
+
+   if (TRKDBG_VERBOSE) { console.log("VisitorID is "+murmur); }
    return murmur;
 }
 
