@@ -81,6 +81,11 @@ function trk_ac_update_contact(contact) {
 
 
 function trk_GetDateString() {
+
+
+   trk_GetVisitorID();
+
+
    if (TRKDBG_FUNCIN) { console.log("=>trk_GetDateString()"); }
 
    var today = new Date();
@@ -292,25 +297,25 @@ if (window.requestIdleCallback) {
   }, 500)
 }
 */
+function trk_GetVisitorID()
+{
+   console.log("enter in function");
+   new Fingerprint2.get(function(result, components) {
+      var info = {
+         fingerprint: result
+      };
 
-new Fingerprint2.get(function(result, components) {
-   var info = {
-       fingerprint: result
-   };
+      processFingerprint(info);
+   });
 
-   processFingerprint(info);
-});
-
-function processFingerprint(data) {
-   console.log(data.fingerprint);
-   console.log(data);
-   //var values = data.fingerprint.map(function (x) {return x});
-   var values = data.fingerprint.map(function (x) {return x.value});
-   //var values = data.map(function (data) {return data.value});
-   var murmur = Fingerprint2.x64hash128(values.join(''), 31);   
-   console.log(murmur);
+   function processFingerprint(data) {
+      //console.log(data.fingerprint);
+      var values = data.fingerprint.map(function (x) {return x.value});
+      var murmur = Fingerprint2.x64hash128(values.join(''), 31);   
+      //console.log(murmur);
+   }
+   console.log("exit function");
 }
-
 
 
 // Get Data ..
