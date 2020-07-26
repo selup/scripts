@@ -57,7 +57,7 @@ function trk_SetEvent(ctx,EventName)
        break;
       case 'optin':
          ctx.evt.fisca_optin_url = ctx.page.url; 
-         ctx.evt.fisca_optin_date = ctx.page.Date;         
+         ctx.evt.fisca_optin_date = ctx.page.date;         
        break;
       case 'sale':
        break;
