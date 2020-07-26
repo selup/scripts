@@ -41,6 +41,7 @@ function dynamicallyLoadScript(url) {
 // Create VisitorID based on fingerprintjs2
 function trk_GetVisitorID()
 {
+   var murmur;
    console.log("enter in function");
    new Fingerprint2.get(function(result, components) {
       var info = {
@@ -53,7 +54,7 @@ function trk_GetVisitorID()
    function processFingerprint(data) {
       //console.log(data.fingerprint);
       var values = data.fingerprint.map(function (x) {return x.value});
-      var murmur = Fingerprint2.x64hash128(values.join(''), 31);   
+      murmur = Fingerprint2.x64hash128(values.join(''), 31);   
       console.log(murmur);
    }
    console.log("exit function");
