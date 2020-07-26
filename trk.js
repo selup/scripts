@@ -184,24 +184,23 @@ function trk_GetCookieValue(cname) {
 }
 
 
-function trk_GetUtmURL(ctx) {
-   ctx.utm = new object();
-   ctx.utm.source = trk_UrlGetParameter("utm_source");
-   ctx.utm.campaign = trk_UrlGetParameter("utm_campaign");
-   ctx.utm.term = trk_UrlGetParameter("utm_term");
-   ctx.utm.content = trk_UrlGetParameter("utm_content");
-   ctx.utm.medium = trk_UrlGetParameter("utm_medium");
-}
 
-function trk_GetBaseData(ctx) {
-   ctx.CurrentUrl = new object();
-   ctx.CurrentUrl.path = window.location.pathname;
-   ctx.CurrentUrl.url = window.location;
-   ctx.CurrentUrl.referrer = window.location.origin;
-   ctx.CurrentUrl.param = window.location.search;
 
-   trk_GetUtmURL(ctx);
+function trk_GetPageInfo(ctx) {
+   ctx.utm_source = trk_UrlGetParameter("utm_source");
+   ctx.utm_campaign = trk_UrlGetParameter("utm_campaign");
+   ctx.utm_term = trk_UrlGetParameter("utm_term");
+   ctx.utm_content = trk_UrlGetParameter("utm_content");
+   ctx.utm_medium = trk_UrlGetParameter("utm_medium");
+
+   ctx.path = window.location.pathname;
+   ctx.url = window.location;
+   ctx.referrer = window.location.origin;
+   ctx.param = window.location.search;
+
    ctx.date = trk_GetDateString();
+
+   //page title
 }
 
 /*
@@ -276,7 +275,8 @@ var trk =
    url: null,
    email: null,
    userId: null,
-   visitorId: null
+   visitorId: null,
+   page: new Object(),
 };
 
 
