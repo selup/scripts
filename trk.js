@@ -62,7 +62,7 @@ function trk_GetVisitorID()
    // can be improve with async 
    while(!murmur)
    {
-      setTimeout(suiteTraitement, 100); // 100ms    
+      setTimeout(suiteTraitement, 10); // 10ms    
    }
    return murmur;
 }
@@ -281,12 +281,7 @@ var trk =
 
 
 
-//trk_GetVisitorID();
-
-
-
 // Load sha256.js in special mode for GTM
-
 (function () {
    if (TRKDBG_FUNCIN) { console.log("=>load sha256.js()"); }
    var script = document.createElement('script');
@@ -305,14 +300,7 @@ trk_WriteEmailOnLocalStorageOnEvent();
 
 
 
-// Get Data ..
-
-// Create objet trk
-
 // Subdivise files
-
-
-// track LP without email.. (store on cookies) // mecanism cookie/localstorage
 
 
 
