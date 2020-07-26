@@ -12,21 +12,6 @@ var TRKDBG_GET_DATE_STRING = false;
 var TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT = true;
 
 
-/*
-function dynamicallyLoadScript(url) 
-{
-   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
-   var script = document.createElement("script");  // create a script DOM node
-   script.src = url;  // set its src to the provided URL
-
-   document.head.appendChild(script);  // add it to the end of the head section of the page (could change 'head' to 'body' to add it to the end of the body section instead)
-}
-*/
-
-
-
-
-
 
 
 
@@ -34,6 +19,8 @@ function dynamicallyLoadScript(url)
 /////////////
 // Main () //
 /////////////
+
+// create trk a partir d'un prototype
 
 var trk =
 {
