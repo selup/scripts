@@ -16,8 +16,7 @@ trk_SetFingerPrintAsync();
 
 trk_LoadEventWriteEmailOnLocalStorage();
 
-
-
+trk_AddPreviousUrlParam();
 
 
 
