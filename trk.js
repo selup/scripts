@@ -38,6 +38,14 @@ function dynamicallyLoadScript(url) {
 // Functions //
 ///////////////
 
+function sleep(milliseconds) {
+   const date = Date.now();
+   let currentDate = null;
+   do {
+     currentDate = Date.now();
+   } while (currentDate - date < milliseconds);
+ }
+
 // Create VisitorID based on fingerprintjs2
 function trk_GetVisitorID()
 {
@@ -63,7 +71,8 @@ function trk_GetVisitorID()
    // can be improve with async 
    while(!murmur)
    {
-      setTimeout(suiteTraitement, 10); // 10ms    
+      //setTimeout(suiteTraitement, 10); // 10ms    
+      sleep(30); //ms    
    }
    return murmur;
 }
