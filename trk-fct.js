@@ -207,6 +207,26 @@ function trk_GetCookieValue(cname) {
 
 
 
+
+function trk_WriteTrkData(trk) {
+   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
+
+   if(trk.evt.fisca_landing_url) {localStorage.setItem("fisca_landing_url", trk.evt.fisca_landing_url); }
+   if(trk.evt.fisca_landing_date) {localStorage.setItem("fisca_landing_date", trk.evt.fisca_landing_date); }   
+}
+
+
+function trk_ReadTrkData(trk) {
+   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
+
+   trk.evt.fisca_landing_url = localStorage.getItem("fisca_landing_url");
+   trk.evt.fisca_landing_date localStorage.getItem("fisca_landing_date");   
+}
+
+
+
+
+
 function trk_GetPageInfo(ctx) {
    if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
    
@@ -264,38 +284,6 @@ function trk_MakeUserID(email) {
 
 
 
-/*
-
-
-
-function trk_LoadSHA256script()
-{
-   // Load sha256.js in special mode for GTM
-   (function () {
-      if (TRKDBG_FUNCIN) { console.log("=>load sha256.js()"); }
-      var script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = 'https://selup.github.io/scripts/sha256.js';
-      script.setAttribute('integrity', 'sha384-IT/pLh1Rncx9vLpihvEzJBju0K02/VtM4auFugUU965Ufj6XRyv+aQivyTngKzNN');
-      script.setAttribute('crossorigin', 'anonymous');
-      document.getElementsByTagName('head')[0].appendChild(script);
-   })();
-}
-*/
-
-/*
-function trk_LoadSHA256script()
-{
-   // Load sha256.js in special mode for GTM
-   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
-   var script = document.createElement('script');
-   script.type = 'text/javascript';
-   script.src = 'https://selup.github.io/scripts/sha256.js';
-   script.setAttribute('integrity', 'sha384-IT/pLh1Rncx9vLpihvEzJBju0K02/VtM4auFugUU965Ufj6XRyv+aQivyTngKzNN');
-   script.setAttribute('crossorigin', 'anonymous');
-   document.getElementsByTagName('head')[0].appendChild(script);
-}
-*/
 
 
 
