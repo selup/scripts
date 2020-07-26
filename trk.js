@@ -12,13 +12,13 @@ var TRKDBG_VERBOSE = true;
 /////////////
 // Main () //
 /////////////
-
+trk_LoadSHA256script();
 
 trk_SetFingerPrintAsync();
 
 trk_LoadEventWriteEmailOnLocalStorage();
 
-trk_LoadSHA256script();
+
 
 
 
