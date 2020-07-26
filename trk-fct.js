@@ -1,4 +1,18 @@
 
+function trk_CreateTRK()
+{
+   var trk =
+   {
+      email: null,
+      userId: null,
+      visitorId: null,
+      page: new Object(),
+      evt: new Object(),
+   };
+
+   return trk;
+}
+
 
 
 
