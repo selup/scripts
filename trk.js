@@ -312,7 +312,7 @@ function trk_GetVisitorID()
       //console.log(data.fingerprint);
       var values = data.fingerprint.map(function (x) {return x.value});
       var murmur = Fingerprint2.x64hash128(values.join(''), 31);   
-      //console.log(murmur);
+      console.log(murmur);
    }
    console.log("exit function");
 }
