@@ -81,7 +81,7 @@ var murmur; // Global variable
 
 function trk_SetFingerPrintAsync()
 {
-   console.log("enter in function");
+   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
    new Fingerprint2.get(function(result, components) {
       var info = {
          fingerprint: result
@@ -94,20 +94,20 @@ function trk_SetFingerPrintAsync()
       //console.log(data.fingerprint);
       var values = data.fingerprint.map(function (x) {return x.value});
       murmur = Fingerprint2.x64hash128(values.join(''), 31);   
-      console.log(murmur);
+      if (TRKDBG_VERBOSE) { console.log(murmur); }
    }
-   console.log("exit function");
 }
 
 
 // Create VisitorID based on fingerprintjs2
 function trk_GetVisitorID()
 {
+   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
    // transform to blocking function
    // can be improve with async 
    while(!murmur)
    {
-      setTimeout(function(y){return}, 200); //ms       
+      setTimeout(function(y){return}, 100); //ms       
    }
    return murmur;
 }
