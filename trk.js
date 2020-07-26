@@ -46,8 +46,6 @@ function trk_SetFingerPrintAsync()
       if (TRKDBG_VERBOSE) { console.log(murmur); }
    }
 }
-
-
 // Create VisitorID based on fingerprintjs2
 function trk_GetVisitorID()
 {
@@ -102,11 +100,11 @@ dynamicallyLoadScript("https://selup.github.io/scripts/trk-fct.js");
 
 var trk =
 {
-   url: null,
    email: null,
    userId: null,
    visitorId: null,
    page: new Object(),
+   event: new Object()
 };
 
 trk_SetFingerPrintAsync();
