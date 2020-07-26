@@ -271,7 +271,7 @@ var trk =
 trk_WriteEmailOnLocalStorageOnEvent();
 
 
-
+/*
 if (window.requestIdleCallback) {
   requestIdleCallback(function () {
     Fingerprint2.get(function (components) {
@@ -290,6 +290,19 @@ if (window.requestIdleCallback) {
       console.log(murmur);
     })  
   }, 500)
+}
+*/
+
+new Fingerprint2().get(function(result, components) {
+   var info = {
+       fingerprint: result
+   };
+
+   processFingerprint(info);
+});
+
+function processFingerprint(data) {
+   alert(data.fingerprint);
 }
 
 
