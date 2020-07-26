@@ -279,7 +279,7 @@ var trk =
    email: null,
    userId: null,
    visitorId: null,
-   page: new Object(),
+   var page= new Object(),
 };
 
 
