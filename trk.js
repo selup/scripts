@@ -58,6 +58,8 @@ function trk_WriteEmailOnLocalStorageOnEvent()   // create ...
 
 dynamicallyLoadScript("https://selup.github.io/scripts/trk-fct.js"); 
 
+console.log(trk_GetDateString);
+
 var trk =
 {
    email: null,
