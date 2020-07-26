@@ -317,6 +317,7 @@ function trk_GetVisitorID()
    console.log("exit function");
 
    // transform to blocking function
+   // can be improve with async 
    while(!murmur)
    {
       setTimeout(suiteTraitement, 100); // 100ms    
