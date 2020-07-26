@@ -283,7 +283,7 @@ function trk_LoadSHA256script()
 }
 */
 
-
+/*
 function trk_LoadSHA256script()
 {
    // Load sha256.js in special mode for GTM
@@ -295,7 +295,7 @@ function trk_LoadSHA256script()
    script.setAttribute('crossorigin', 'anonymous');
    document.getElementsByTagName('head')[0].appendChild(script);
 }
-
+*/
 
 
 
