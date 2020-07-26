@@ -44,6 +44,33 @@ function trk_GetDateString() {
 
 
 
+
+function trk_SetEvent(ctx,EventName)
+{
+   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
+
+   // Event
+	switch (EventName) {
+      case 'landing':
+         ctx.evt.fisca_landing_url = ctx.page.url; 
+         ctx.evt.fisca_landing_date = ctx.page.Date; 
+       break;
+      case 'optin':
+         ctx.evt.fisca_optin_url = ctx.page.url; 
+         ctx.evt.fisca_optin_date = ctx.page.Date;         
+       break;
+      case 'sale':
+       break;
+      case 'order':
+       break;
+      case 'purchased':
+       break;
+      default:
+    }
+}
+
+
+
 function trk_ac_update_contact(contact) {
    if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
 
