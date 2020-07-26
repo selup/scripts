@@ -211,16 +211,16 @@ function trk_GetCookieValue(cname) {
 function trk_WriteTrkData(trk) {
    if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
 
-   if(trk.evt.fisca_landing_url) {localStorage.setItem("fisca_landing_url", trk.evt.fisca_landing_url); }
-   if(trk.evt.fisca_landing_date) {localStorage.setItem("fisca_landing_date", trk.evt.fisca_landing_date); }   
+   if(trk.evt.fisca_landing_url) {localStorage.setItem("trk_fisca_landing_url", trk.evt.fisca_landing_url); }
+   if(trk.evt.fisca_landing_date) {localStorage.setItem("trk_fisca_landing_date", trk.evt.fisca_landing_date); }   
 }
 
 
 function trk_ReadTrkData(trk) {
    if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
 
-   trk.evt.fisca_landing_url = localStorage.getItem("fisca_landing_url");
-   trk.evt.fisca_landing_date = localStorage.getItem("fisca_landing_date");   
+   trk.evt.fisca_landing_url = localStorage.getItem("trk_fisca_landing_url");
+   trk.evt.fisca_landing_date = localStorage.getItem("trk_fisca_landing_date");   
 }
 
 
