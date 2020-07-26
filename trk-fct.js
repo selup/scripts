@@ -245,12 +245,9 @@ function trk_MakeUserID(email) {
 
    if(email)
    {
-      if(sha256) {}
-      else
-      {console.log("non definie")};
-      
+
       var loop = 0;
-      while((!sha256) && (loop<30) )
+      while((loop<30) )
       {
          loop = loop +1;
          setTimeout(function(z){return}, 100); //ms       
