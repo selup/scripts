@@ -22,14 +22,19 @@ var TRKDBG_VERBOSE = true;
 
 // create trk a partir d'un prototype
 
-var trk =
+function trk_CreateTRK()
 {
-   email: null,
-   userId: null,
-   visitorId: null,
-   page: new Object(),
-   evt: new Object(),
-};
+   var trk =
+   {
+      email: null,
+      userId: null,
+      visitorId: null,
+      page: new Object(),
+      evt: new Object(),
+   };
+
+   return trk;
+}
 
 trk_SetFingerPrintAsync();
 
