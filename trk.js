@@ -304,7 +304,8 @@ new Fingerprint2.get(function(result, components) {
 function processFingerprint(data) {
    console.log(data.fingerprint);
    console.log(data);
-   var values = data.fingerprint.map(function (x) {return x});
+   //var values = data.fingerprint.map(function (x) {return x});
+   var values = data.map(function (data) {return data.value});
    var murmur = Fingerprint2.x64hash128(values.join(''), 31);   
    console.log(murmur);
 }
