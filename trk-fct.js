@@ -2,6 +2,49 @@
 
 
 
+/////////////////////////////
+// VisitorID - TO IMPROVE //
+/////////////////////////////
+var murmur; // Global variable
+function trk_SetFingerPrintAsync()
+{
+   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
+   new Fingerprint2.get(function(result, components) {
+      var info = {
+         fingerprint: result
+      };
+
+      processFingerprint(info);
+   });
+
+   function processFingerprint(data) {
+      //console.log(data.fingerprint);
+      var values = data.fingerprint.map(function (x) {return x.value});
+      murmur = Fingerprint2.x64hash128(values.join(''), 31);   
+      if (TRKDBG_VERBOSE) { console.log(murmur); }
+   }
+}
+// Create VisitorID based on fingerprintjs2
+function trk_GetVisitorID()
+{
+   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
+   // transform to blocking function
+   // can be improve with async 
+   var loop = 0;
+   while((!murmur) && (loop<5) )
+   {
+      loop = loop +1;
+      setTimeout(function(y){return}, 100); //ms       
+   }
+
+   if (TRKDBG_VERBOSE) { console.log("VisitorID is "+murmur); }
+   return murmur;
+}
+
+
+
+
+
 
 
 
@@ -115,50 +158,6 @@ function trk_ac_update_contact(contact) {
 
 
 
-/*
-function trk_ac_update_contact(contact) {
-   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
-
-   if ((contact.email != "") && (contact.email != undefined)) {
-      var urlWebApp = "https://script.google.com/macros/s/AKfycbwDKQdFDCCCKNy47Zw8q7pz2edltXtYBHStj9e7GuwNZb-7jUq2/exec";
-
-      var bodyData = [];
-      bodyData.push(urlWebApp + "?email=" + encodeURIComponent(contact.email));
-
-      if ((contact.userid != "") && (contact.userid != undefined)) { bodyData.push(['userid=' + encodeURIComponent(contact.userid)]); }
-
-      if ((contact.utm_campaign != "") && (contact.utm_campaign != undefined)) { bodyData.push(['utm_campaign=' + encodeURIComponent(contact.utm_campaign)]); }
-      if ((contact.utm_source != "") && (contact.utm_source != undefined)) { bodyData.push(['utm_source=' + encodeURIComponent(contact.utm_source)]); }
-      if ((contact.utm_term != "") && (contact.utm_term != undefined)) { bodyData.push(['utm_term=' + encodeURIComponent(contact.utm_term)]); }
-      if ((contact.utm_content != "") && (contact.utm_content != undefined)) { bodyData.push(['utm_content=' + encodeURIComponent(contact.utm_content)]); }
-      if ((contact.utm_medium != "") && (contact.utm_medium != undefined)) { bodyData.push(['utm_medium=' + encodeURIComponent(contact.utm_medium)]); }
-
-      if ((contact.fragment != "") && (contact.fragment != undefined)) { bodyData.push(['fragment=' + encodeURIComponent(contact.fragment)]); }
-      if ((contact.path != "") && (contact.path != undefined)) { bodyData.push(['path=' + encodeURIComponent(contact.path)]); }
-      if ((contact.referrer != "") && (contact.referrer != undefined)) { bodyData.push(['referrer=' + encodeURIComponent(contact.referrer)]); }
-      if ((contact.url != "") && (contact.url != undefined)) { bodyData.push(['url=' + encodeURIComponent(contact.url)]); }
-
-      if ((contact.date != "") && (contact.date != undefined)) { bodyData.push(['date=' + encodeURIComponent(contact.date)]); }//date (JJ MM AA)
-
-
-      // FISCA LANDING
-      if ((contact.fisca_landing_url != "") && (contact.fisca_landing_url != undefined)) { bodyData.push(['fisca_landing_url=' + encodeURIComponent(contact.fisca_landing_url)]); }
-      if ((contact.fisca_landing_date != "") && (contact.fisca_landing_date != undefined)) { bodyData.push(['fisca_landing_date=' + encodeURIComponent(contact.fisca_landing_date)]); }
-      if ((contact.fisca_optin_url != "") && (contact.fisca_optin_url != undefined)) { bodyData.push(['fisca_optin_url=' + encodeURIComponent(contact.fisca_optin_url)]); }
-      if ((contact.fisca_optin_date != "") && (contact.fisca_optin_date != undefined)) { bodyData.push(['fisca_optin_date=' + encodeURIComponent(contact.fisca_optin_date)]); }
-
-
-
-      var UrlToCall = bodyData.join('&');
-      if (TRKDBG_AC_UPDATE_CONTACT) { console.log("url is:" + UrlToCall); }
-
-      var Http = new XMLHttpRequest();
-      Http.open("GET", UrlToCall);
-      Http.send();
-   }
-}
-*/
-
 
 
 function trk_UrlGetParameter(parameterName) {
@@ -239,3 +238,161 @@ function trk_MakeUserID(email) {
    }
    return email_sha256encoded;  
 }
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+// Create VisitorID based on fingerprintjs2
+/*
+function trk_GetVisitorID()
+{
+   var murmur;
+   console.log("enter in function");
+   new Fingerprint2.get(function(result, components) {
+      var info = {
+         fingerprint: result
+      };
+
+      processFingerprint(info);
+   });
+
+   function processFingerprint(data) {
+      //console.log(data.fingerprint);
+      var values = data.fingerprint.map(function (x) {return x.value});
+      murmur = Fingerprint2.x64hash128(values.join(''), 31);   
+      console.log(murmur);
+   }
+   console.log("exit function");
+
+   // transform to blocking function
+   // can be improve with async 
+   while(!murmur)
+   {
+      setTimeout(function(y){return}, 200); //ms       
+   }
+   return murmur;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+analytics.track('webinar LP', {
+  webinaire: 'fisca'
+});
+*/
+
+// trk_SetEvent
+/*
+function trk_SetEvent(str_evt,property)
+{
+	// Fill base data
+	trk_GetBaseData();
+	
+	// Email & UserID
+	trk_GetEmail();
+	trk_GetUserID();
+	
+	// Event
+	switch (evt) {
+	  case 'landing':
+			trk.fisca_landing_url = ctx.CurrentUrl.url;  
+			trk.fisca_landing_date = ctx.date; 
+			trk_ac_update_contact(trk);
+		break;
+	  case 'optin':
+		break;
+	  case 'sale':
+		break;
+	  case 'order':
+		break;
+	  case 'purchased':
+		break;
+	  default:
+	}	
+	
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+/*
+function trk_ac_update_contact(contact) {
+   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
+
+   if ((contact.email != "") && (contact.email != undefined)) {
+      var urlWebApp = "https://script.google.com/macros/s/AKfycbwDKQdFDCCCKNy47Zw8q7pz2edltXtYBHStj9e7GuwNZb-7jUq2/exec";
+
+      var bodyData = [];
+      bodyData.push(urlWebApp + "?email=" + encodeURIComponent(contact.email));
+
+      if ((contact.userid != "") && (contact.userid != undefined)) { bodyData.push(['userid=' + encodeURIComponent(contact.userid)]); }
+
+      if ((contact.utm_campaign != "") && (contact.utm_campaign != undefined)) { bodyData.push(['utm_campaign=' + encodeURIComponent(contact.utm_campaign)]); }
+      if ((contact.utm_source != "") && (contact.utm_source != undefined)) { bodyData.push(['utm_source=' + encodeURIComponent(contact.utm_source)]); }
+      if ((contact.utm_term != "") && (contact.utm_term != undefined)) { bodyData.push(['utm_term=' + encodeURIComponent(contact.utm_term)]); }
+      if ((contact.utm_content != "") && (contact.utm_content != undefined)) { bodyData.push(['utm_content=' + encodeURIComponent(contact.utm_content)]); }
+      if ((contact.utm_medium != "") && (contact.utm_medium != undefined)) { bodyData.push(['utm_medium=' + encodeURIComponent(contact.utm_medium)]); }
+
+      if ((contact.fragment != "") && (contact.fragment != undefined)) { bodyData.push(['fragment=' + encodeURIComponent(contact.fragment)]); }
+      if ((contact.path != "") && (contact.path != undefined)) { bodyData.push(['path=' + encodeURIComponent(contact.path)]); }
+      if ((contact.referrer != "") && (contact.referrer != undefined)) { bodyData.push(['referrer=' + encodeURIComponent(contact.referrer)]); }
+      if ((contact.url != "") && (contact.url != undefined)) { bodyData.push(['url=' + encodeURIComponent(contact.url)]); }
+
+      if ((contact.date != "") && (contact.date != undefined)) { bodyData.push(['date=' + encodeURIComponent(contact.date)]); }//date (JJ MM AA)
+
+
+      // FISCA LANDING
+      if ((contact.fisca_landing_url != "") && (contact.fisca_landing_url != undefined)) { bodyData.push(['fisca_landing_url=' + encodeURIComponent(contact.fisca_landing_url)]); }
+      if ((contact.fisca_landing_date != "") && (contact.fisca_landing_date != undefined)) { bodyData.push(['fisca_landing_date=' + encodeURIComponent(contact.fisca_landing_date)]); }
+      if ((contact.fisca_optin_url != "") && (contact.fisca_optin_url != undefined)) { bodyData.push(['fisca_optin_url=' + encodeURIComponent(contact.fisca_optin_url)]); }
+      if ((contact.fisca_optin_date != "") && (contact.fisca_optin_date != undefined)) { bodyData.push(['fisca_optin_date=' + encodeURIComponent(contact.fisca_optin_date)]); }
+
+
+
+      var UrlToCall = bodyData.join('&');
+      if (TRKDBG_AC_UPDATE_CONTACT) { console.log("url is:" + UrlToCall); }
+
+      var Http = new XMLHttpRequest();
+      Http.open("GET", UrlToCall);
+      Http.send();
+   }
+}
+*/
