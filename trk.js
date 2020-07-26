@@ -71,7 +71,7 @@ function trk_GetVisitorID()
    // can be improve with async 
    while(!murmur)
    {
-      setTimeout(function(x){return}, 30); //ms       
+      setTimeout(function(y){return}, 200); //ms       
    }
    return murmur;
 }
