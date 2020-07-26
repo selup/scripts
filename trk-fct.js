@@ -102,19 +102,25 @@ function trk_GetDateString() {
 
 
 
-function trk_SetEvent(ctx,EventName)
+function trk_SetEvent(ctx,EventName,ProductName)
 {
    if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
 
    // Event
 	switch (EventName) {
       case 'landing':
-         ctx.evt.fisca_landing_url = ctx.page.url; 
-         ctx.evt.fisca_landing_date = ctx.page.date; 
+         if(ProductName == "fisca")
+         {
+            ctx.evt.fisca_landing_url = ctx.page.url; 
+            ctx.evt.fisca_landing_date = ctx.page.date; 
+         }
        break;
       case 'optin':
-         ctx.evt.fisca_optin_url = ctx.page.url; 
-         ctx.evt.fisca_optin_date = ctx.page.date;         
+         if(ProductName == "fisca")
+         {
+            ctx.evt.fisca_optin_url = ctx.page.url; 
+            ctx.evt.fisca_optin_date = ctx.page.date;         
+         }
        break;
       case 'sale':
        break;
