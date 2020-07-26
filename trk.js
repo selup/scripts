@@ -27,27 +27,6 @@ function dynamicallyLoadScript(url)
 
 
 
-//if email input exsit, create a event to read it 
-function trk_WriteEmailOnLocalStorageOnEvent()   // create ...
-{
-   if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
-
-   if (document.getElementsByName("email")[0]) {
-      var tmp_email = document.getElementsByName("email")[0].value; //if email already present
-      tmp_email_encoded = window.btoa(tmp_email);
-      localStorage.setItem("trk_eml_enc", tmp_email_encoded);
-      if (TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT) { console.log("email write in local storage is:" + tmp_email); }
-
-      document.getElementsByName("email")[0].oninput = function () {
-         var tmp_email = document.getElementsByName("email")[0].value;
-         tmp_email_encoded = window.btoa(tmp_email);
-         localStorage.setItem("trk_eml_enc", tmp_email_encoded);
-         if (TRKDBG_WRITE_EMAIL_LOCAL_STORAGE_ON_EVENT) { console.log("email write in local storage is:" + tmp_email); }
-      };
-   }
-   // else read local storage ?
-}
-
 
 
 
@@ -68,7 +47,7 @@ var trk =
 trk_SetFingerPrintAsync();
 
 // load event for catching email
-trk_WriteEmailOnLocalStorageOnEvent();
+trk_LoadEventWriteEmailOnLocalStorage();
 
 
 trk_LoadSHA256script();
