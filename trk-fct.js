@@ -63,7 +63,7 @@ function trk_GetVisitorID()
 
 
 
-function sleep(milliseconds) 
+function trk_Sleep(milliseconds) 
 {
    if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
    const date = Date.now();
