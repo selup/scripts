@@ -102,7 +102,7 @@ function trk_GetDateString() {
 
 
 
-function trk_SetEvent(ctx,EventName,ProductName)
+function trk_SetEvent(ctx,ProductName,EventName)
 {
    if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
 
