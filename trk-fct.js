@@ -282,6 +282,23 @@ function trk_WriteTrkData(trk) {
 */
 
    // Log path visited (session only)
+   if(trk.email) {document.cookie = "trk_email="+trk.email; }
+   if(trk.userId) {document.cookie = "trk_userId="+trk.userId; }
+   if(trk.visitorId) {document.cookie = "trk_visitorId="+trk.visitorId; }
+   
+   if(trk.page.utm_campaign) {document.cookie = "trk_utm_campaign="+trk.page.utm_campaign; }
+   if(trk.page.utm_source) {document.cookie = "trk_utm_source="+trk.page.utm_source; }
+   if(trk.page.utm_term) {document.cookie = "trk_utm_term="+trk.page.utm_term; }
+   if(trk.page.utm_content) {document.cookie = "trk_utm_content="+trk.page.utm_content; }
+   if(trk.page.utm_medium) {document.cookie = "trk_utm_medium="+trk.page.utm_medium;}
+
+
+   if(trk.page.fragment) {document.cookie = "trk_fragment="+trk.page.fragment; }
+   if(trk.page.path) {document.cookie = "trk_path="+trk.page.path; }
+   if(trk.page.referrer) {document.cookie = "trk_referrer="+trk.page.referrer; }
+   if(trk.page.url) {document.cookie = "trk_url="+trk.page.url; }
+   if(trk.page.date) {document.cookie = "trk_date="+trk.page.date; }
+
    if(trk.evt.fisca_landing_url) {document.cookie = "trk_fisca_landing_url="+trk.evt.fisca_landing_url; }
    if(trk.evt.fisca_landing_date) {document.cookie = "trk_fisca_landing_date="+trk.evt.fisca_landing_date; }   
    if(trk.evt.fisca_optin_url) {document.cookie = "trk_fisca_optin_url="+trk.evt.fisca_optin_url; }
@@ -297,6 +314,23 @@ function trk_ReadTrkData(trk) {
    trk.evt.fisca_landing_url = localStorage.getItem("trk_fisca_landing_url");
    trk.evt.fisca_landing_date = localStorage.getItem("trk_fisca_landing_date");   
    */
+
+   trk.email = trk_GetCookieValue("trk_email");
+   trk.userId = trk_GetCookieValue("trk_userId");
+   trk.visitorId = trk_GetCookieValue("trk_visitorId");
+  
+   trk.page.utm_campaign = trk_GetCookieValue("trk_utm_campaign");
+   trk.page.utm_source = trk_GetCookieValue("trk_utm_source");
+   trk.page.utm_term = trk_GetCookieValue("trk_utm_term");
+   trk.page.utm_content = trk_GetCookieValue("trk_utm_content");
+   trk.page.utm_medium = trk_GetCookieValue("trk_utm_medium"); 
+
+   trk.page.fragment =  trk_GetCookieValue("trk_fragment");
+   trk.page.path =  trk_GetCookieValue("trk_path");
+   trk.page.referrer =  trk_GetCookieValue("trk_referrer");
+   trk.page.url =  trk_GetCookieValue("trk_url");
+   trk.page.date =  trk_GetCookieValue("trk_date");
+
 
   // Read path visited (session only)
   trk.evt.fisca_landing_url = trk_GetCookieValue("trk_fisca_landing_url");
@@ -367,8 +401,8 @@ function trk_MakeUserID(email) {
 
 
 
-
-
+// Via Cookies for subdomain
+// Mecanism to restore cookie via local storage
 
 //if email input exsit, create a event to read it 
 function trk_LoadEventWriteEmailOnLocalStorage()   // create ...
