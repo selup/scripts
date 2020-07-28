@@ -12,10 +12,9 @@ var TRKDBG_VERBOSE = true;
 /////////////
 // Main () //
 /////////////
-trk_SetFingerPrintAsync();
+//trk_SetFingerPrintAsync(); // avoir plus tard
 
 trk_LoadEventWriteEmailOnLocalStorage();
-
 trk_AddPreviousUrlParam();
 
 
