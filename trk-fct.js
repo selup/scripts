@@ -1,3 +1,4 @@
+//	file can be fund here:  https://selup.github.io/scripts/trk-fct.js
 
 function trk_CreateTRK()
 {
@@ -153,7 +154,7 @@ function trk_SetEvent(ctx,ProductName,EventName)
       default:
     }
 
-    trk_ReadTrkData(ctx);
+    trk_WriteTrkData(ctx);
     trk_ac_update_contact(ctx);
 }
 
