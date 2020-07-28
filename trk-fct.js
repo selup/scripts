@@ -153,6 +153,7 @@ function trk_SetEvent(ctx,ProductName,EventName)
       default:
     }
 
+    trk_ReadTrkData(ctx);
     trk_ac_update_contact(ctx);
 }
 
