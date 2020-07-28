@@ -276,16 +276,34 @@ function trk_GetCookieValue(cname) {
 function trk_WriteTrkData(trk) {
    if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
 
+   /*
    if(trk.evt.fisca_landing_url) {localStorage.setItem("trk_fisca_landing_url", trk.evt.fisca_landing_url); }
    if(trk.evt.fisca_landing_date) {localStorage.setItem("trk_fisca_landing_date", trk.evt.fisca_landing_date); }   
+*/
+
+   // Log path visited (session only)
+   if(trk.evt.fisca_landing_url) {document.cookie = "trk_fisca_landing_url="+trk.evt.fisca_landing_url; }
+   if(trk.evt.fisca_landing_date) {document.cookie = "trk_fisca_landing_date="+trk.evt.fisca_landing_date; }   
+   if(trk.evt.fisca_optin_url) {document.cookie = "trk_fisca_optin_url="+trk.evt.fisca_optin_url; }
+   if(trk.evt.fisca_optin_date) {document.cookie = "trk_fisca_optin_date="+trk.evt.fisca_optin_date; }   
+
 }
 
 
 function trk_ReadTrkData(trk) {
    if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
 
+   /*
    trk.evt.fisca_landing_url = localStorage.getItem("trk_fisca_landing_url");
    trk.evt.fisca_landing_date = localStorage.getItem("trk_fisca_landing_date");   
+   */
+
+  // Read path visited (session only)
+  trk.evt.fisca_landing_url = trk_GetCookieValue("trk_fisca_landing_url");
+  trk.evt.fisca_landing_date = trk_GetCookieValue("trk_fisca_landing_date");   
+  trk.evt.fisca_optin_url = trk_GetCookieValue("trk_fisca_optin_url");
+  trk.evt.fisca_optin_date = trk_GetCookieValue("trk_fisca_optin_date");   
+
 }
 
 
