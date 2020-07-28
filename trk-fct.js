@@ -122,6 +122,13 @@ function trk_SetEvent(ctx,ProductName,EventName)
             ctx.evt.fisca_optin_date = ctx.page.date;         
          }
        break;
+       case 'registered':
+         if(ProductName == "fisca")
+         {
+            ctx.evt.fisca_registered_url = ctx.page.url; 
+            ctx.evt.fisca_registered_date = ctx.page.date;         
+         }
+       break;       
       case 'attended':
          if(ProductName == "fisca")
          {
@@ -145,6 +152,8 @@ function trk_SetEvent(ctx,ProductName,EventName)
        break;
       default:
     }
+
+    trk_ac_update_contact(ctx);
 }
 
 
@@ -218,6 +227,8 @@ function trk_ac_update_contact(contact) {
       if (contact.evt.fisca_landing_date) { bodyData.push(['fisca_landing_date=' + encodeURIComponent(contact.evt.fisca_landing_date)]); }
       if (contact.evt.fisca_optin_url) { bodyData.push(['fisca_optin_url=' + encodeURIComponent(contact.evt.fisca_optin_url)]); }
       if (contact.evt.fisca_optin_date) { bodyData.push(['fisca_optin_date=' + encodeURIComponent(contact.evt.fisca_optin_date)]); }
+      if (contact.evt.fisca_registered_url) { bodyData.push(['fisca_registered_url=' + encodeURIComponent(contact.evt.fisca_registered_url)]); }
+      if (contact.evt.fisca_registered_date) { bodyData.push(['fisca_registered_date=' + encodeURIComponent(contact.evt.fisca_registered_date)]); }
       if (contact.evt.fisca_attended_url) { bodyData.push(['fisca_attended_url=' + encodeURIComponent(contact.evt.fisca_attended_url)]); }
       if (contact.evt.fisca_attended_date) { bodyData.push(['fisca_attended_date=' + encodeURIComponent(contact.evt.fisca_attended_date)]); }
       if (contact.evt.fisca_sell_url) { bodyData.push(['fisca_sell_url=' + encodeURIComponent(contact.evt.fisca_sell_url)]); }
@@ -304,6 +315,15 @@ function trk_WriteTrkData(trk) {
    if(trk.evt.fisca_optin_url) {document.cookie = "trk_fisca_optin_url="+trk.evt.fisca_optin_url; }
    if(trk.evt.fisca_optin_date) {document.cookie = "trk_fisca_optin_date="+trk.evt.fisca_optin_date; }   
 
+   if(trk.evt.fisca_registered_url) {document.cookie = "trk_fisca_registered_url="+trk.evt.fisca_registered_url; }
+   if(trk.evt.fisca_registered_date) {document.cookie = "trk_fisca_registered_date="+trk.evt.fisca_registered_date; }   
+   if(trk.evt.fisca_attended_url) {document.cookie = "trk_fisca_attended_url="+trk.evt.fisca_attended_url; }
+   if(trk.evt.fisca_attended_date) {document.cookie = "trk_fisca_attended_date="+trk.evt.fisca_attended_date; }   
+   if(trk.evt.fisca_selling_url) {document.cookie = "trk_fisca_selling_url="+trk.evt.fisca_selling_url; }
+   if(trk.evt.fisca_selling_date) {document.cookie = "trk_fisca_selling_date="+trk.evt.fisca_selling_date; }   
+   if(trk.evt.fisca_purchased_url) {document.cookie = "trk_fisca_purchased_url="+trk.evt.fisca_purchased_url; }
+   if(trk.evt.fisca_purchased_date) {document.cookie = "trk_fisca_purchased_date="+trk.evt.fisca_purchased_date; }   
+
 }
 
 
@@ -337,6 +357,16 @@ function trk_ReadTrkData(trk) {
   trk.evt.fisca_landing_date = trk_GetCookieValue("trk_fisca_landing_date");   
   trk.evt.fisca_optin_url = trk_GetCookieValue("trk_fisca_optin_url");
   trk.evt.fisca_optin_date = trk_GetCookieValue("trk_fisca_optin_date");   
+
+  trk.evt.fisca_registered_url = trk_GetCookieValue("trk_fisca_registered_url");
+  trk.evt.fisca_registered_date = trk_GetCookieValue("trk_fisca_registered_date");   
+  trk.evt.fisca_attended_url = trk_GetCookieValue("trk_fisca_attended_url");
+  trk.evt.fisca_attended_date = trk_GetCookieValue("trk_fisca_attended_date");  
+
+  trk.evt.fisca_selling_url = trk_GetCookieValue("trk_fisca_selling_url");
+  trk.evt.fisca_selling_date = trk_GetCookieValue("trk_fisca_selling_date");   
+  trk.evt.fisca_purchased_url = trk_GetCookieValue("trk_fisca_purchased_url");
+  trk.evt.fisca_purchased_date = trk_GetCookieValue("trk_fisca_purchased_date");    
 
 }
 
