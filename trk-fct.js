@@ -396,8 +396,9 @@ function trk_GetPageInfo(ctx) {
 }
 
 
-
-
+////////////////
+// WebinarJam //
+////////////////
 function trk_SetVideoTimerEvent()
 {
     //value_video_time.addEventListener("DOMCharacterDataModified", function()
@@ -413,6 +414,21 @@ function trk_SetVideoTimerEvent()
   
   return value_video_time;
 }
+
+
+
+function trk_GetVideoLength()
+{
+   
+   var element_video = document.getElementsByClassName("vjs-duration-display");
+   var value_video_duration = element_video[0].textContent;
+   //console.log("value_video_time is:"+value_video_time);
+   alert("video duration is:"+value_video_duration);
+
+  return value_video_duration;
+}
+
+
 
 
 function trk_GetEmail() {
