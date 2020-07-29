@@ -405,11 +405,11 @@ function trk_SetVideoTimerEvent()
   var timerID = setInterval(function() {
       var element_video_time = document.getElementsByClassName("vjs-current-time-display");
       var value_video_time = element_video_time[0].textContent;
-      console.log("value_video_time is:"+value_video_time);
+      console.log("Current time of the video is: "+value_video_time);
 
       var element_video = document.getElementsByClassName("vjs-duration-display");
       var value_video_duration = element_video[0].textContent;      
-      console.log("length ms is:"+value_video_duration_ms);
+      console.log("video duration is: "+value_video_duration);
 
 
   }, 10 * 1000); 
