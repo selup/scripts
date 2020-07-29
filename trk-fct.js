@@ -408,9 +408,11 @@ function trk_SetVideoTimerEvent()
       var value_video_time = element_video_time[0].textContent;
       console.log("value_video_time is:"+value_video_time);
       var length = trk_GetVideoLength();
-      var value_video_time_ms = new Date("1970-01-01"+value_video_time);
-      var length_ms = new Date("1970-01-01"+length);
-      var percent = (value_video_time_ms / value_video_time_ms) *100.0;
+      var date_value_video_time_ms = new Date("1970-01-01"+value_video_time);
+      var value_video_time_ms = date_value_video_time_ms.getTime();
+      var date_length_ms = new Date("1970-01-01"+length);
+      var length_ms = date_length_ms.getTime();
+      var percent = (value_video_time_ms / date_length_ms) *100.0;
       console.log("percent is:"+percent);
   }, 10 * 1000); 
 
