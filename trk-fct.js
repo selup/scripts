@@ -401,24 +401,26 @@ function trk_GetPageInfo(ctx) {
 ////////////////
 function trk_SetVideoTimerEvent()
 {
-    //value_video_time.addEventListener("DOMCharacterDataModified", function()
   
   var timerID = setInterval(function() {
       var element_video_time = document.getElementsByClassName("vjs-current-time-display");
       var value_video_time = element_video_time[0].textContent;
       console.log("value_video_time is:"+value_video_time);
-      var length = trk_GetVideoLength();
-
       var date_value_video_time_ms = new Date("1970-01-01"+value_video_time);
-      var value_video_time_ms = date_value_video_time_ms.getTime();
+      var value_video_time_ms = trk_AddTimes(date_value_video_time_ms.getTime(),"0:0:0");
       console.log("video ms is:"+value_video_time_ms);
 
-      var date_length_ms = new Date("1970-01-01"+length);
-      var length_ms = date_length_ms.getTime();
-      console.log("length ms is:"+length_ms);
+      //var length = trk_GetVideoLength();
+      var element_video = document.getElementsByClassName("vjs-duration-display");
+      var value_video_duration = element_video[0].textContent;      
+      var date_value_video_duration_ms = new Date("1970-01-01"+value_video_duration);
+      var value_video_duration_ms = trk_AddTimes(date_value_video_duration_ms.getTime(),"0:0:0");
+      console.log("length ms is:"+value_video_duration_ms);
+
 
       var percent = (value_video_time_ms / length_ms) *100.0;
       console.log("percent is:"+percent);
+
   }, 10 * 1000); 
 
   //clearInterval(timerID); // The setInterval it cleared and doesn't run anymore.
@@ -426,7 +428,47 @@ function trk_SetVideoTimerEvent()
 }
 
 
+function trk_AddTimes(startTime, endTime) {
+   var times = [0, 0, 0]
+   var max = times.length
 
+   var a = (startTime || '').split(':')
+   var b = (endTime || '').split(':')
+
+   // normalize time values
+   for (var i = 0; i < max; i++) {
+       a[i] = isNaN(parseInt(a[i])) ? 0 : parseInt(a[i])
+       b[i] = isNaN(parseInt(b[i])) ? 0 : parseInt(b[i])
+   }
+
+   // store time values
+   for (var i = 0; i < max; i++) {
+       times[i] = a[i] + b[i]
+   }
+
+   var hours = times[0]
+   var minutes = times[1]
+   var seconds = times[2]
+
+
+
+   if (seconds >= 60) {
+       var m = (seconds / 60) << 0
+       minutes += m
+       seconds -= 60 * m
+   }
+
+   if (minutes >= 60) {
+       var h = (minutes / 60) << 0
+       hours += h
+       minutes -= 60 * h
+   }
+
+   return ('0' + hours).slice(-2) + ':' + ('0' + minutes).slice(-2) + ':' + ('0' + seconds).slice(-2)
+}
+
+
+/*
 function trk_GetVideoLength()
 {
    
@@ -437,7 +479,7 @@ function trk_GetVideoLength()
 
   return value_video_duration;
 }
-
+*/
 
 
 
