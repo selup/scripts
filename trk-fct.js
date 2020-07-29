@@ -295,7 +295,7 @@ function trk_WriteTrkData(trk) {
 */
 
    // Log path visited (session only)
-   if(trk.email) {document.cookie = "trk_email="+trk.email; }
+   if(trk.email) {var trk_eml_enc = window.btoa(trk.email);  document.cookie = "trk_eml_enc="+trk_eml_enc; }
    if(trk.userId) {document.cookie = "trk_userId="+trk.userId; }
    if(trk.visitorId) {document.cookie = "trk_visitorId="+trk.visitorId; }
    
@@ -337,7 +337,8 @@ function trk_ReadTrkData(trk) {
    trk.evt.fisca_landing_date = localStorage.getItem("trk_fisca_landing_date");   
    */
 
-   trk.email = trk_GetCookieValue("trk_email");
+   var trk_eml_enc = trk_GetCookieValue("trk_eml_enc");
+   trk.email = window.btoa(trk_eml_enc);
    trk.userId = trk_GetCookieValue("trk_userId");
    trk.visitorId = trk_GetCookieValue("trk_visitorId");
   
