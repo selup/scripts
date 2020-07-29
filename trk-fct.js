@@ -407,7 +407,11 @@ function trk_SetVideoTimerEvent()
       var element_video_time = document.getElementsByClassName("vjs-current-time-display");
       var value_video_time = element_video_time[0].textContent;
       console.log("value_video_time is:"+value_video_time);
-      trk_GetVideoLength();
+      var length = trk_GetVideoLength();
+      var value_video_time_ms = new Date("1970-01-01"+value_video_time);
+      var length_ms = new Date("1970-01-01"+length);
+      var percent = (value_video_time_ms / value_video_time_ms) *100.0;
+      console.log("percent is:"+percent);
   }, 10 * 1000); 
 
   //clearInterval(timerID); // The setInterval it cleared and doesn't run anymore.
