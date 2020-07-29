@@ -17,7 +17,7 @@ trk_SetFingerPrintAsync(); // revoir plus tard
 trk_LoadEventWriteEmailOnLocalStorage();
 trk_AddPreviousUrlParam();
 
-
+trk_SetVideoTimerEvent();
 
 
 
