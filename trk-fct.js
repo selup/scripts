@@ -407,6 +407,7 @@ function trk_SetVideoTimerEvent()
       var element_video_time = document.getElementsByClassName("vjs-current-time-display");
       var value_video_time = element_video_time[0].textContent;
       console.log("value_video_time is:"+value_video_time);
+      trk_GetVideoLength();
   }, 10 * 1000); 
 
   //clearInterval(timerID); // The setInterval it cleared and doesn't run anymore.
@@ -421,7 +422,7 @@ function trk_GetVideoLength()
    var element_video = document.getElementsByClassName("vjs-duration-display");
    var value_video_duration = element_video[0].textContent;
    //console.log("value_video_time is:"+value_video_time);
-   alert("video duration is:"+value_video_duration);
+   console.log("video duration is:"+value_video_duration);
 
   return value_video_duration;
 }
