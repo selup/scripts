@@ -410,9 +410,7 @@ function trk_SetVideoTimerEvent()
   }, 10 * 1000); 
 
   //clearInterval(timerID); // The setInterval it cleared and doesn't run anymore.
-    
-  
-  return value_video_time;
+
 }
 
 
