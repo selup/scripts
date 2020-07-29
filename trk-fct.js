@@ -397,6 +397,24 @@ function trk_GetPageInfo(ctx) {
 
 
 
+
+function trk_SetVideoTimerEvent()
+{
+    //value_video_time.addEventListener("DOMCharacterDataModified", function()
+  
+  var timerID = setInterval(function() {
+      var element_video_time = document.getElementsByClassName("vjs-current-time-display");
+      var value_video_time = element_video_time[0].textContent;
+      console.log("value_video_time is:"+value_video_time);
+  }, 10 * 1000); 
+
+  //clearInterval(timerID); // The setInterval it cleared and doesn't run anymore.
+    
+  
+  return value_video_time;
+}
+
+
 function trk_GetEmail() {
    if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
    var value_encoded = localStorage.getItem('trk_eml_enc');
