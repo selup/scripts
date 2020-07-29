@@ -412,7 +412,7 @@ function trk_SetVideoTimerEvent()
       var value_video_time_ms = date_value_video_time_ms.getTime();
       var date_length_ms = new Date("1970-01-01"+length);
       var length_ms = date_length_ms.getTime();
-      var percent = (value_video_time_ms / date_length_ms) *100.0;
+      var percent = (value_video_time_ms / length_ms) *100.0;
       console.log("percent is:"+percent);
   }, 10 * 1000); 
 
