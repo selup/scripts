@@ -416,18 +416,36 @@ function trk_SetVideoTimerEvent()
   //clearInterval(timerID); // The setInterval it cleared and doesn't run anymore.
 }
 
-
-
-
+// Add strategy to re-Write Cookies from local storage
 function trk_GetEmail() {
    if (TRKDBG_FUNCIN) { console.log("=>" + arguments.callee.name + "()"); }
-   var value_encoded = localStorage.getItem('trk_eml_enc');
-   if (value_encoded) { var value_decoded = window.atob(value_encoded); }
-   if (TRKDBG_VERBOSE) {
-      console.log("email encoded is:" + value_encoded);
-      console.log("email decoded is:" + value_decoded);
+
+   var email;
+
+   // Try to get WebinarJam email and write encoded email on cookie and local storage 
+   if(window.localConfiguration.me.email)
+   {
+      var trk_email_ew = window.localConfiguration.me.email;
+      var trk_email_ew_enc = window.btoa(trk_email_ew);
+      document.cookie = 'trk_eml_ew_enc='+trk_email_ew_enc;
+      localStorage.setItem("trk_ema_ew_enc", trk_email_ew_enc);
+      email = trk_email_ew;
+      if (TRKDBG_VERBOSE) { console.log("email is :"+trk_email_ew);  }
    }
-   return value_decoded;
+
+   // Try to read local storage 
+   var value_encoded = localStorage.getItem('trk_eml_enc');
+   if (value_encoded)
+   { 
+      var value_decoded = window.atob(value_encoded); 
+      email = value_decoded;
+      if (TRKDBG_VERBOSE) {
+         console.log("email encoded is:" + value_encoded);
+         console.log("email decoded is:" + value_decoded);
+      }
+   }
+
+   return email;
 }
 
 
