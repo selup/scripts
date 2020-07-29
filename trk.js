@@ -19,7 +19,6 @@ trk_AddPreviousUrlParam();
 
 trk_SetVideoTimerEvent();
 
-trk_GetVideoLength();
 
 
 
